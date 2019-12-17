@@ -5,8 +5,9 @@
 ## Guides
 
 * [Getting started with ACTUS Protocol](guides/build-with-actus-protocol.md)
-* [Guide 1](guides/guide-1.md)
-* [Guide 2](guides/guide-2.md)
+* [Issue and service Loan using TypeScript](guides/guide-1.md)
+* [Tokenize an ACTUS asset](guides/tokenize-an-actus-asset.md)
+* [Simple OTC order system for ACTUS assets](guides/guide-2.md)
 
 ## ACTUS Solidity <a id="ap"></a>
 
@@ -19,5 +20,6 @@
 ## AP.js <a id="ap-js"></a>
 
 * [Overview](ap-js/overview.md)
+* [Tokenization](ap-js/tokenization.md)
 * [API Documentation](ap-js/api-documentation.md)
 
