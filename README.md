@@ -2,7 +2,7 @@
 description: This page gives a quick introduction into main components of ACTUS Protocol
 ---
 
-# Introduction to the ACTUS Protocol
+# ACTUS Protocol Introduction
 
 {% hint style="warning" %}
 WORK IN PROGRESS  

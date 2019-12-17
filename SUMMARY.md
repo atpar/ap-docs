@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Introduction to the ACTUS Protocol](README.md)
+* [ACTUS Protocol Introduction](README.md)
+* [Cheat Sheet](cheat-sheet.md)
 
 ## Guides
 
@@ -16,10 +17,10 @@
 ## AP-Contracts
 
 * [Overview](ap-contracts/overview.md)
+* [Custom deployment](ap-contracts/custom-deployment.md)
 
 ## AP.js <a id="ap-js"></a>
 
 * [Overview](ap-js/overview.md)
 * [Tokenization](ap-js/tokenization.md)
-* [API Documentation](ap-js/api-documentation.md)
 

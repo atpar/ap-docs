@@ -6,7 +6,7 @@ description: >-
 
 # Overview
 
-### Important Resources:
+### Important Resources
 
 * [GitHub Repository](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)
 * AP.js [API Documentation](https://ap-js.actus-protocol.io/)

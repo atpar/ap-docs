@@ -1,6 +1,6 @@
 # Issue and service a Loan
 
-Content:
+Content
 
 * Assumes getting started
 * Creditor: Alice, Debtor: Bob
