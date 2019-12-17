@@ -25,7 +25,7 @@ const productId = '...';
 
 // parameterize the product
 const customTerms = {
-  anchorDate: new Date.now(),
+  anchorDate: Math.round((new Date()).getTime() / 1000);,
   notionalPrincipal: ap.utils.toPrecision(1000), // e.g. 1000 DAI
   nominalInterestRate: ap.utils.toPrecision(0.05), // e.g. 5%
   premiumDiscountAtIED: '0',
@@ -86,9 +86,41 @@ await order.signOrder();
 
 // issuing the filled order
 await order.issueFromOrder();
+
+// -------------------------------------------------------------
+// retrieving the issued asset
+// -------------------------------------------------------------
+
+ap.onNewAssetIssued(async (asset) => {
+  console.log(await asset.getTerms());
+});
 ```
 
+```typescript
+// -------------------------------------------------------------
+// settling the initial exchange as the lender (creator)
+// -------------------------------------------------------------
 
+// obtaining the next obligation
+const { eventType, scheduleTime } = ap.utils.schedule.decodeEvent(
+  asset.getNextEvent()
+);
+
+// assuming scheduleTime >= Math.round((new Date()).getTime() / 1000);
+// pre-payments are currently not supported
+
+const { amount, token } = await asset.getNextPayment();
+
+// setting allowance for the Actor to settle the obligation
+// on behalf of the creator
+await IERC20(token).methods.approve(
+  ap.contracts.assetActor.options.address,
+  amount
+);
+
+// settle the initial exchange and progress the state of the asset
+await asset.progress();
+```
 
 
 
