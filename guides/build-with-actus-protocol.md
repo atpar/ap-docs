@@ -39,5 +39,3 @@ const ap = await AP.init(
 );
 ```
 
-### Step 3: Continue with another guide
-
