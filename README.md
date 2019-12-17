@@ -18,7 +18,13 @@ The ACTUS Protocol has not been audited, yet. Don't put your funds at risk!
 Our helpful team is available to chat on [Discord](https://discord.gg/WdAhDYq)!
 {% endhint %}
 
-ACTUS Protocol is a smart contract system and Typescript library for issuing and servicing financial assets on Ethereum. It is build on top of `actus-solidity` a free and open-source implementation of the [ACTUS](https://www.actusfrf.org/) standard.
+ACTUS Protocol is a smart contract system and Typescript library for issuing and servicing financial assets on Ethereum. It is build on top of `actus-solidity` a free and open-source implementation of the [ACTUS](https://www.actusfrf.org/) standard. 
+
+All ACTUS assets have a unified term sheet and a clear and understandable schedule. External data, such as interest rates are supported through external market objects which can be connected to oracles. Assets can have credit enhancements such as on-chain collateral or legal guarantees.
+
+ACTUS Assets are registered in the AssetRegistry. They progress through their life-cycle using a state machine based on their schedule. The schedule is generated directly from the soldity implementation of ACTUS, guaranteeing a common understanding about _who pays what to whom and when_.
+
+![ACTUS Protocol](.gitbook/assets/image%20%284%29.png)
 
 **Core features:**
 
