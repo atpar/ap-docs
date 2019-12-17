@@ -1,4 +1,4 @@
-# Getting started with ACTUS Protocol
+# Getting started
 
 This guide explains how to set up actus Protocol and develop with it. It's the ACTUS Protocol "Hello World" equivalent.
 

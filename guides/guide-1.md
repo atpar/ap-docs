@@ -1,4 +1,4 @@
-# Issue and service Loan using TypeScript
+# Issue and service a Loan
 
 Content:
 

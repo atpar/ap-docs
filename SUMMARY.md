@@ -4,10 +4,10 @@
 
 ## Guides
 
-* [Getting started with ACTUS Protocol](guides/build-with-actus-protocol.md)
-* [Issue and service Loan using TypeScript](guides/guide-1.md)
-* [Tokenize an ACTUS asset](guides/tokenize-an-actus-asset.md)
-* [Simple OTC order system for ACTUS assets](guides/guide-2.md)
+* [Getting started](guides/build-with-actus-protocol.md)
+* [Issue and service a Loan](guides/guide-1.md)
+* [Tokenize an asset](guides/tokenize-an-actus-asset.md)
+* [Simple OTC order system](guides/guide-2.md)
 
 ## ACTUS Solidity <a id="ap"></a>
 

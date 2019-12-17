@@ -1,4 +1,4 @@
-# Simple OTC order system for ACTUS assets
+# Simple OTC order system
 
 Content:
 

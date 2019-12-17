@@ -1,4 +1,4 @@
-# Tokenize an ACTUS asset
+# Tokenize an asset
 
 T
 
