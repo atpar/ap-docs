@@ -14,7 +14,6 @@ This guide assumes that you are working against the _Goerli deployment_ of ACTUS
 
 ### Step 0: Install prerequisites
 
-* git
 * [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
 ### Step 1: Add ap.js to your project
@@ -28,9 +27,10 @@ yarn add @atpar/ap.js
 ### Step 2: Initialize the ACTUS Protocol library
 
 ```typescript
-import { AP, Asset, Order, APTypes } from './ap.js';
+import Web3 from 'web3.js'; 
+import { AP } from './ap.js';
 
-const addressBook: APTypes.AddressBook;
+const web3 = new Web3(new Web3.providers.Web3SocketProvider('http://localhost:8545'));
 
 const ap = await AP.init(
   web3, 
