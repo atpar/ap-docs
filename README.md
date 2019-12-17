@@ -18,9 +18,19 @@ The ACTUS Protocol has not been audited, yet. Don't put your funds at risk!
 Our helpful team is available to chat on [Discord](https://discord.gg/WdAhDYq)!
 {% endhint %}
 
-## [`actus-solidity`](https://github.com/atpar/actus-solidity)
+ACTUS Protocol is a smart contract system and Typescript library for issuing and servicing financial assets on Ethereum. It is build on top of `actus-solidity` a free and open-source implementation of the [ACTUS](https://www.actusfrf.org/) standard.
 
-A solidity implementation of the ACTUS Standard. ACTUS was created by the [ACTUS Foundation](https://www.actusfrf.org). 
+**Core features:**
+
+* Issue ACTUS assets
+* Progress ACTUS assets throughout their life-cycle
+* Tokenize cash flows of ACTUS assets
+
+## Components
+
+### [`actus-solidity`](https://github.com/atpar/actus-solidity)
+
+A solidity implementation of the ACTUS standard. ACTUS was created by the [ACTUS Foundation](https://www.actusfrf.org). 
 
 > The goal of ACTUS is to break down the diversity in financial instruments into a manageable number of cash flow patterns – so called Contract Types \(CT\).
 
@@ -35,7 +45,7 @@ In `actus-solidity` we ported the Standards to solidity and are incrementally im
 
 `actus-solidity` can be used independently for creating ACTUS instruments on Ethereum but also is the foundational component for ACTUS Protocol.
 
-## [`ap-contracts`](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap-contracts)
+### [`ap-contracts`](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap-contracts)
 
 `ap-contracts` is a collection of solidity contracts that comprise the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for issuing and progressing ACTUS Protocol assets.
 
@@ -48,7 +58,7 @@ Main Components:
 
 
 
-## [`ap.js`](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)
+### [`ap.js`](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)
 
 safdsdafsd
 
