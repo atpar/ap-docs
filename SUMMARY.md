@@ -10,17 +10,18 @@
 * [Tokenize an asset](guides/tokenize-an-actus-asset.md)
 * [Simple OTC order system](guides/guide-2.md)
 
-## ACTUS Solidity <a id="ap"></a>
+## AP.js <a id="ap-js"></a>
 
-* [Overview](ap/overview.md)
+* [Overview](ap-js/overview.md)
+* [Tokenization](ap-js/tokenization.md)
+* [Available Product Templates](ap-js/available-product-templates.md)
 
 ## AP-Contracts
 
 * [Overview](ap-contracts/overview.md)
 * [Custom deployment](ap-contracts/custom-deployment.md)
 
-## AP.js <a id="ap-js"></a>
+## ACTUS Solidity <a id="ap"></a>
 
-* [Overview](ap-js/overview.md)
-* [Tokenization](ap-js/tokenization.md)
+* [Overview](ap/overview.md)
 
