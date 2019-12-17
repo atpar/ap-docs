@@ -58,8 +58,8 @@ const orderParams = {
   },
   expirationDate: String(customTerms.anchorDate),
   engine: ap.contracts.pamEngine.options.address, // address of the PAM engine
-  enhancement_1: null,
-  enhancement_2: null
+  enhancement_1: null, // continuing without any attached enhancements 
+  enhancement_2: null // such as collateral, guarantees
 } 
 
 // creating the order
@@ -85,7 +85,7 @@ const order = Order.load(orderData);
 await order.signOrder();
 
 // issuing the filled order
-await order.issueFromOrder();
+await order.issueAssetFromOrder();
 
 // -------------------------------------------------------------
 // retrieving the issued asset
