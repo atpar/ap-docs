@@ -30,12 +30,11 @@ yarn add @atpar/ap.js
 import Web3 from 'web3.js'; 
 import { AP } from './ap.js';
 
-const web3 = new Web3(new Web3.providers.Web3SocketProvider('http://localhost:8545'));
+// connecting to Görli Testnet via infura
+const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
 
-const ap = await AP.init(
-  web3, 
-  DEFAULT_ACCOUNT,
-  addressBook // optional addresses specified in ap-contracts for the current network
-);
+const defaultAccount = (await web3.eth.getAccounts())[0];
+
+const ap = await AP.init(web3, defaultAccount);
 ```
 
