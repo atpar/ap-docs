@@ -23,7 +23,7 @@ const asset = await Asset.load(ap, ASSET_ID);
 // assuming:
 // (await asset.getOwnership()).creatorBeneficiary === creatorBeneficiary;
 
-// tokenizing the payments paid towards the creator beneficiary
+// tokenizing payments paid towards the creator beneficiary
 // deploys a new FundsDistributionToken and updates the address
 // of the creator beneficiary to the address of the FDT
 const distributorAddress = await asset.tokenizeBeneficiary(
@@ -33,5 +33,13 @@ const distributorAddress = await asset.tokenizeBeneficiary(
 );
 
 // (await asset.getOwnership()).creatorBeneficiary === distributorAddress;
+
+// -------------------------------------------------------------
+// withdrawing funds paid into the FDT
+// -------------------------------------------------------------
+
+await ap.contracts.distributor(
+  distributorAddress
+).methods.withdrawFunds(asset.assetId).send({ from: creatorBeneficiary });
 ```
 
