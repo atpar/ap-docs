@@ -57,9 +57,7 @@ const orderParams = {
     counterpartyBeneficiary: counterparty // receives all revenue of the counterparty
   },
   expirationDate: String(customTerms.anchorDate),
-  engine: ap.contracts.pamEngine.options.address, // address of the PAM engine
-  enhancement_1: null, // continuing without any attached enhancements 
-  enhancement_2: null // such as collateral, guarantees
+  engine: ap.contracts.pamEngine.options.address // address of the PAM engine
 } 
 
 // creating the order
