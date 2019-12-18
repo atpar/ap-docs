@@ -13,32 +13,58 @@ description: >-
 
 ### Usage
 
-```text
-yarn add @atpar/ap.js 
+```bash
+yarn add @atpar/ap.js
 ```
 
 #### Setup
 
 Initializing the ACTUS Protocol library.
 
-```text
-import { AP, Asset, Order } from './ap.js';
+```typescript
+import Web3 from 'web3.js'; 
+import { AP, Asset, Order, APTypes } from './ap.js';
+
+// connecting to Görli Testnet via infura
+const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
+
+const defaultAccount = (await web3.eth.getAccounts())[0];
+
+const addressBook: APTypes.AddressBook;
 
 const ap = await AP.init(
-  web3, 
-  DEFAULT_ACCOUNT
+  web3,
+  defaultAccount,
+  addressBook // optional pass custom address of ap-contracts to ap.js
 );
 ```
 
 #### Order
 
-`Order` is a wrapper around the `IssuanceAPI` for creating orders and issuing assets from a co-signed orders.
+`Order` contains methods for creating orders and issuing assets from a co-signed orders.
 
-```text
+```typescript
 const orderParams: OrderParams = {
-  makerAddress: MAKER_ADDRESS,
-  terms: CONTRACT_TERMS,
-  makerCreditEnhancementAddress: '0x0000000000000000000000000000000000000000'
+  termsHash: string; // hash of the entire terms object of the asset
+  productId: string; // id of the product which this asset should be based on
+  customTerms: CustomTerms; // CustomTerms of the asset
+  ownership: AssetOwnership; // ownership of the asset
+  expirationDate: string; // timestamp of when this order expires
+  engine: string; // address of the ACTUS Engine for the asset 
+  enhancement_1?: { // optional object describing the first enhancement
+    termsHash: string; // hash of the entire terms object of the first enhancement
+    productId: string; // id of the product the first enhancment should based on
+    customTerms: CustomTerms; // CustomTerms of the first enhancement
+    ownership: AssetOwnership;  // ownership of the first enhancement
+    engine: string; // address of the ACTUS Engine for the first enhancement
+  } | null;
+  enhancement_2?: { // optional object describing the second enhancement
+    termsHash: string; // hash of the entire terms object of the second enhancement
+    productId: string; // id of the product the second enhancment should based on
+    customTerms: CustomTerms; // CustomTerms of the second enhancement
+    ownership: AssetOwnership;  // ownership of the second enhancement
+    engine: string; // address of the ACTUS Engine for the second enhancement
+  } | null;
 };
 
 const order = Order.create(ap, orderParams);
@@ -46,39 +72,25 @@ const order = Order.create(ap, orderParams);
 
 Serializing an `Order` as `OrderData`
 
-```text
-const orderData: OrderData = Order.serializeOrder();
+```typescript
+const orderData: OrderData = order.serializeOrder();
 ```
 
 Instantiate an `Order` from `OrderData`.
 
-```text
-const orderData: OrderData = {
-  makerAddress: MAKER_ADDRESS;
-  takerAddress: null; // depending on if order was filled by taker
-  actorAddress: ACTOR_ADDRESS;
-  terms: CONTRACT_TERMS;
-  makerCreditEnhancementAddress: MAKER_CREDIT_ENHANCEMENT_ADDRESS;
-  takerCreditEnhancementAddress: null; // depending on if order was filled by taker
-  salt: SALT;
-  signatures: {
-    makerSignature: null; // depending on if order was signed by maker
-    takerSignature: null; // depending on if order was signed by taker
-  };
-};
-
+```typescript
 const order = Order.load(ap, orderData);
 ```
 
-Signing and sending an order to an order-relayer \(as a maker or taker\).
+Signing an order \(as creator or counterparty obligor\).
 
-```text
+```typescript
 await order.signOrder();
 ```
 
 Issue a new asset from an co-signed order \(requires both signatures\).
 
-```text
+```typescript
 await order.issueAssetFromOrder();
 ```
 
@@ -86,47 +98,42 @@ await order.issueAssetFromOrder();
 
 `Asset` is a wrapper around `AP.js` APIs to make the creation and the lifecycle management of an ACTUS asset easier.
 
-Creating a new Asset.
+Loading an Asset given its AssetId from the Asset Registry.
 
-```text
-const asset = await Asset.create(ap, CONTRACT_TERMS, ASSET_OWNERSHIP);
-```
-
-Loading a `Asset` given its AssetId from the on-chain registries.
-
-```text
+```typescript
 const asset = await Asset.load(ap, ASSET_ID);
 ```
 
 Retrieve information of the asset such as the terms, the state or the ownership.
 
-```text
+```typescript
 const terms = await asset.getTerms();
 ```
 
-Expected Schedule vs. Pending schedule: Every ACTUS asset has a planned \(expected\) schedule which is derived from the asset terms. During the lifecycle of an asset unexpected events such as penalty payments or rate resets can occur. The pending schedule accounts for such unexpected events by factoring in the current state of the asset.
+Retrieve the projected schedule of the asset \(does not contain unscheduled events such as CD\)
 
-```text
-const expectedSchedule = await asset.getExpectedSchedule();
-const pendingSchedule = await asset.getPendingSchedule();
+```typescript
+const schedule = await asset.getSchedule();
 ```
 
 Settlement of obligations: The next obligation is the most immediate obligation which is not yet paid off.
 
-```text
-const amount = await getAmountOutstandingForNextObligation(TIMESTAMP);
-await asset.settleNextObligation(TIMESTAMP, amount); // can also be partially paid off
+```typescript
+// event type, schedule time of the event
+const event = ap.utils.decodeEvent(await asset.getNextEvent());
+// payment information of the event
+const payment = await asset.getNextPayment();
 ```
 
-Progressing the state of the asset. If all obligations in of the pending schedule are paid off, the state of the asset can be updated.
+Progressing the state of the asset. Requires that the Asset Actor has sufficient allowance to settle the obligation of the pending event. If there are unsettled obligation for the pending event, the actor will transition the state of the asset to a non-performant state.
 
-```text
+```typescript
 await asset.progress(); // progresses the state to the current block timestamp
 ```
 
 Tokenizing the one of the beneficiaries of the asset. Tokenizes the beneficary \(respective to the default accounts ownership of the asset\) by deploying a new Funds Distribution Token smart contract.
 
-```text
+```typescript
 const distributorAddress = await asset.tokenizeBeneficiary();
 ```
 
@@ -136,32 +143,7 @@ Also see the [API Documentation](https://ap-js.actus-protocol.io/)
 
 | API | Description |
 | :--- | :--- |
-| ContractsAPI | wrapper around the ACTUS Protocol smart contracts |
-| EconomicsAPI | interact with actus-solidity engines - retrieve terms, state and the current EventId of a registered asset |
-| IssuanceAPI | issue an ACTUS asset by filling a co-signed order - listen for new issued assets and retrieve the assetIds of all issued assets |
-| LifecycleAPI | initialize a new asset \(registering terms, initial state and ownership\) - progress the state of an registered asset |
-| OwnershipAPI | retrieve the ownership of an asset - update the address of beneficiaries |
-| PaymentAPI | settle an obligation - retrieve the amount settled for a given timeframe |
-| TokenizationAPI | tokenize an asset by deploying a new Funds Distribution Token smart contract - interact with FDT smart contract \(withdrawing funds etc.\) |
-
-### Development
-
-#### Install
-
-```text
-yarn install
-
-# compile typescript to js
-yarn build
-```
-
-#### Testing
-
-```text
-yarn test
-```
-
-
-
-
+| Contracts | wrapper around the ACTUS Protocol smart contracts |
+| Signer | interact with actus-solidity engines - retrieve terms, state and the current EventId of a registered asset |
+| Utils | utility methods for conversions, constants, creating signatures and handling schedules |
 
