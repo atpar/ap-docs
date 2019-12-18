@@ -105,7 +105,7 @@ const orderData = order.serializeOrder();
 
 This is the point where we hand over to the counterparty, who wants to take out the loan.
 
-## Take the Order as the counterparty and issue the order
+## Take the order as the counterparty and issue the asset
 
 When the counterparty has received the order, she instantiates the order, signs it and issues it on Ethereum. She could also send the signed OrderData object to a third party relayer for issuance.
 
@@ -161,7 +161,8 @@ await IERC20(token).methods.approve(
   amount
 );
 
-// settle the initial exchange and progress the state of the asset
+// settle the initial exchange and progress the state of the asset.
+// This actually transfers the required ammount of tokens.
 await asset.progress();
 ```
 

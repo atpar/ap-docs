@@ -5,7 +5,8 @@
 * ACTUS Protocol [Goerli Smart Contract addresses](https://github.com/atpar/ap-monorepo/blob/master/packages/ap-contracts/deployments.json)
 * AP.js [API Documentation](https://ap-js.actus-protocol.io/)
 * Look up ACTUS terms in the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary)
-* Table of Product templates
+* Table of Product templates \[TODO\]
+* [ERC-2222](https://github.com/ethereum/EIPs/issues/2222) Funds Distribution Standard
 
 
 
