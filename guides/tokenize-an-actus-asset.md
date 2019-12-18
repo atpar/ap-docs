@@ -38,8 +38,14 @@ const distributorAddress = await asset.tokenizeBeneficiary(
 // withdrawing funds paid into the FDT
 // -------------------------------------------------------------
 
+// ...
 await ap.contracts.distributor(
   distributorAddress
-).methods.withdrawFunds(asset.assetId).send({ from: creatorBeneficiary });
+).methods.withdrawableFundsOf(creatorBeneficiary).call();
+
+// withdrawing ...
+await ap.contracts.distributor(
+  distributorAddress
+).methods.withdrawFunds().send({ from: creatorBeneficiary });
 ```
 
