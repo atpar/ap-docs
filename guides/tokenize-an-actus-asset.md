@@ -4,14 +4,6 @@ description: Tokenize the cash flow as a beneficiary of an asset
 
 # Tokenize an asset
 
-Content
-
-* Assume asset is issued
-* Choose and set token parameters
-* tokenizeBeneficiary\(\)
-* transfer some of the tokens\(\)
-* withdraw
-
 ## Scenario
 
 When an asset is issued it's not autmatically also "tokenized". In ACTUS Protocol, tokenization means to create a token that represents a certain type of cash flow of the asset. In the most simple case the beneficiary, e.g. the creditor, issues a number of tokens that represent a fraction of all positive cash flow, i.e. the interest and principal payments of the asset.

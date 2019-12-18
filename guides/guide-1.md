@@ -156,10 +156,7 @@ const { amount, token } = await asset.getNextPayment();
 
 // set the allowance for the Actor to settle the obligation
 // on behalf of the creator
-await IERC20(token).methods.approve(
-  ap.contracts.assetActor.options.address,
-  amount
-);
+await asset.approveNextPayment();
 
 // settle the initial exchange and progress the state of the asset.
 // This actually transfers the required ammount of tokens.
