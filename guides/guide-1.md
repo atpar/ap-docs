@@ -46,6 +46,7 @@ const customTerms = {
 };
  
 // orderParams object for an asset without enhancements
+// see ... for all possible parameters
 const orderParams = {
   termsHash: ap.utils.constants.ZERO_BYTES32, // optional store a hash of all terms attributes
   productId,
