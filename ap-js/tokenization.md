@@ -8,13 +8,19 @@ Tokenization is optional. It usually makes most sense for the _Beneficiary_ side
 
 ACTUS Protocol makes use of an implementation of [ERC-2222](https://github.com/ethereum/EIPs/issues/2222) to efficiently distribute cash flows to token holders.
 
+**ADD:** 
+
+* **Depositing**
+* **Withdrawing**
+* **Transferring**
+
 {% hint style="info" %}
 ACTUS Protocol currently only supports tokenization of the beneficary side of an asset
 {% endhint %}
 
 ### Example
 
-Alice lends 100 DAI to Bob. Bob pays the DAI back over the course of 1 year. Each month he pays a percentage of the principal + interest.
+Alice lends 100 DAI to Bob. Bob pays the DAI back over the course of 1 year. Each month he pays a percentage of the principal + interest.[Tokenization](https://app.gitbook.com/@atpar/s/actus-protocol/~/drafts/-LwStONQ1lqX8usJr5QL/ap-js/tokenization/~/settings/customization)
 
 Alice is the beneficiary and tokenizes her side of the asset. She has multiple options:
 

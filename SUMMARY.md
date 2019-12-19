@@ -1,6 +1,7 @@
 # Table of contents
 
 * [ACTUS Protocol Introduction](README.md)
+* [Architecture](architecture.md)
 * [Cheat Sheet](cheat-sheet.md)
 
 ## Guides
@@ -8,13 +9,12 @@
 * [Getting started](guides/build-with-actus-protocol.md)
 * [Issue and service a Loan](guides/guide-1.md)
 * [Tokenize an asset](guides/tokenize-an-actus-asset.md)
-* [Simple OTC order system](guides/guide-2.md)
 
 ## AP.js <a id="ap-js"></a>
 
 * [Overview](ap-js/overview.md)
+* [Products](ap-js/available-product-templates.md)
 * [Tokenization](ap-js/tokenization.md)
-* [Available Product Templates](ap-js/available-product-templates.md)
 
 ## AP-Contracts
 

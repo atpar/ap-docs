@@ -8,7 +8,14 @@ GitHub: [https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap-contracts](ht
 
 Generated Documentation: [https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/docs/](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts)
 
-## ACTUS-Solidity
+`ap-contracts` is a collection of solidity contracts that comprise the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for issuing and progressing ACTUS Protocol assets.
+
+Main Components:
+
+* Core - Includes 
+* Issuance
+* Tokenization
+* external
 
 Content:
 

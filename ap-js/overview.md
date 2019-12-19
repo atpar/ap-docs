@@ -147,3 +147,5 @@ Also see the [API Documentation](https://ap-js.actus-protocol.io/)
 | Signer | interact with actus-solidity engines - retrieve terms, state and the current EventId of a registered asset |
 | Utils | utility methods for conversions, constants, creating signatures and handling schedules |
 
+
+

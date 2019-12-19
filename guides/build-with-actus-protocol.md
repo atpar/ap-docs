@@ -12,11 +12,15 @@ The provided instructions have been tested on _Ubuntu_. They will likely work in
 
 This guide assumes that you are working against the _Goerli deployment_ of ACTUS Protocol. For a custom deployment, see the custom deployment guide.
 
-### Step 0: Install prerequisites
+### Install prerequisites
+
+\[text\]
 
 * [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
-### Step 1: Add ap.js to your project
+### Add ap.js to your project
+
+\[text\]
 
 ```bash
 mkdir ap-tutorial && cd ap-tutorial
@@ -24,7 +28,9 @@ yarn init -y # initalize a default project
 yarn add @atpar/ap.js 
 ```
 
-### Step 2: Initialize the ACTUS Protocol library
+### Initialize the ACTUS Protocol library
+
+\[text\]
 
 ```typescript
 import Web3 from 'web3.js'; 
