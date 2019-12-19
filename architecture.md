@@ -14,11 +14,11 @@ description: Understand how the ACTUS Protocol components work together
 
 ### ap-contracts
 
-`ap-contracts` contains the smart contracts of the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for computing the schedule, future states and state transition conditions of ACTUS Protocol assets.
+`ap-contracts` is a collection of solidity contracts that comprise the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for issuing and progressing ACTUS Protocol assets.
 
 ### actus-solidity
 
-`actus-solidity` is an implementation of the ACTUS financial contract standard written in solidity. Its main features are creation of asset schedules from ACTUS contract terms and  state progression.
+`actus-solidity` is an implementation of the ACTUS financial contract standard written in the Ethereum based smart contract programming language solidity. Its main features are creation of asset schedules from ACTUS contract terms and  state progression.
 
 ## The Inner Workings
 
