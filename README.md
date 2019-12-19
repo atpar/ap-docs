@@ -19,7 +19,7 @@ All ACTUS assets have a unified term sheet and a clear and understandable schedu
 
 ACTUS Assets are registered in the AssetRegistry. They progress through their life-cycle using a state machine based on their schedule. The schedule is generated directly from the soldity implementation of ACTUS, guaranteeing a common understanding about _who pays what to whom and when_.
 
-![ACTUS Protocol](.gitbook/assets/image%20%284%29.png)
+![ACTUS Protocol](.gitbook/assets/image%20%281%29.png)
 
 **Core features:**
 

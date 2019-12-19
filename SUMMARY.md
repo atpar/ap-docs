@@ -19,7 +19,6 @@
 ## AP-Contracts
 
 * [Overview](ap-contracts/overview.md)
-* [Custom deployment](ap-contracts/custom-deployment.md)
 
 ## ACTUS Solidity <a id="ap"></a>
 

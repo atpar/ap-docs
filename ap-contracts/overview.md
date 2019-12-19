@@ -30,8 +30,6 @@ Content:
 * Schedule
 * Progress/ State Machine
 
-![AP-Contracts architecture](../.gitbook/assets/image%20%282%29.png)
-
 
 
 
