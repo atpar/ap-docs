@@ -10,17 +10,17 @@ description: >-
 The provided instructions have been tested on _Ubuntu_. They will likely work in a similar way on other  distros.
 {% endhint %}
 
-This guide assumes that you are working against the _Goerli deployment_ of ACTUS Protocol. For a custom deployment, see the custom deployment guide.
+This guide assumes that you are working against the _Goerli deployment_ of ACTUS Protocol.
 
 ### Install prerequisites
 
-\[text\]
+You should be on a linux compatible shell with basic dev tools like git installed. The ACTUS Protocol dev environment is most easily setup with yarn.
 
-* [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
+* Install [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
 ### Add ap.js to your project
 
-\[text\]
+In your shell, execute the following commands to create a simple project and add `ap.js` to it.
 
 ```bash
 mkdir ap-tutorial && cd ap-tutorial
@@ -30,7 +30,7 @@ yarn add @atpar/ap.js
 
 ### Initialize the ACTUS Protocol library
 
-\[text\]
+To initialize the project, tell your web3 object what provider it should use \(e.g. infura, or a local Ethereum node\). The default account will be used for signing e.g. orders.
 
 ```typescript
 import Web3 from 'web3.js'; 
