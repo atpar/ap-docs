@@ -10,15 +10,15 @@ description: Understand how the ACTUS Protocol components work together
 
 ### ap.js
 
-`ap.js` is a TypeScript library that serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away a large chunk of the complexity.
+`ap.js` is a TypeScript library that serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away a large chunk of the complexity of issuing an asset, progressing its state and tokenization.
 
-### AP-contracts
+### ap-contracts
 
-`ap-contracts` is a collection of solidity contracts that comprise the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for issuing and progressing ACTUS Protocol assets.
+`ap-contracts` contains the smart contracts of the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for computing the schedule, future states and state transition conditions of ACTUS Protocol assets.
 
-### ACTUS-Solidity
+### actus-solidity
 
-`actus-solidity` is an implementation of the ACTUS financial contract standard written in the Ethereum based smart contract programming language solidity. Its main features are creation of asset schedules from ACTUS contract terms and  state progression.
+`actus-solidity` is an implementation of the ACTUS financial contract standard written in solidity. Its main features are creation of asset schedules from ACTUS contract terms and  state progression.
 
 ## The Inner Workings
 
