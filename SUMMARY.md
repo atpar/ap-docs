@@ -6,9 +6,9 @@
 
 ## Guides
 
-* [Getting started](guides/build-with-actus-protocol.md)
-* [Issue and service a Loan](guides/guide-1.md)
-* [Tokenize an asset](guides/tokenize-an-actus-asset.md)
+* [Getting started](guides/getting-started.md)
+* [Issue and service a Loan](guides/issue-and-service.md)
+* [Tokenize an asset](guides/tokenize-an-asset.md)
 
 ## AP.js <a id="ap-js"></a>
 

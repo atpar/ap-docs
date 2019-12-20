@@ -21,7 +21,7 @@ In this guide you will:
 
 ## Configure the template and create an order
 
-We assume you have completed the [Getting started](build-with-actus-protocol.md) guide. 
+We assume you have completed the [Getting started](getting-started.md) guide. 
 
 First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a template from the available templates.
 
