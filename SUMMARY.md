@@ -20,7 +20,7 @@
 
 * [Overview](ap-contracts/overview.md)
 
-## ACTUS Solidity <a id="ap"></a>
+## ACTUS Solidity
 
-* [Overview](ap/overview.md)
+* [Overview](actus-solidity/overview.md)
 
