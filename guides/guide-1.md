@@ -14,20 +14,18 @@ In the scenario we have a creator, which is the lender and a counterparty which 
 
 In this guide you will:
 
-* Choose a product from the product library
-* Customize the product terms
-* Create an order for the asset
-* Let the counterparty accept the offer
-* Issue an ACTUS loan using a predefined template
-* Start the asset's lifecycle by paying the principal of the loan to the debtor
+* Choose a template and define the terms of the asset
+* Create and sign an order for the asset
+* Co-sign the order as the counterparty and issue the asset through ACTUS Protocol
+* Service the asset by paying the principal of the loan to the debtor \(counterparty\)
 
-## Configure the product and create an order
+## Configure the template and create an order
 
 We assume you have completed the [Getting started](build-with-actus-protocol.md) guide. 
 
-First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a product from the available templates.
+First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a template from the available templates.
 
-To speed up things up, we go with an already registered product which defines a simple loan.
+To speed up things up, we go with an already registered template which defines a simple loan.
 
 ```typescript
 import { AP, Order } from './ap.js';
@@ -39,15 +37,15 @@ import { AP, Order } from './ap.js';
 const creator = (await web3.eth.getAccounts())[0];
 const counterparty; // address of counterparty
 
-// choose a registered product which defines a simple PAM-based
-// loan with monthly interest payments from the ProductRegistry
-const productId = '...'; 
+// choose a registered template which defines a simple PAM-based
+// loan with monthly interest payments from the TemplateRegistry
+const templateId = '...'; 
 ```
 
-Next, parameterize the product to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
+Next, parameterize the template to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
 
 ```typescript
-// parameterize the product
+// parameterize the template
 const customTerms = {
   anchorDate: Math.round((new Date()).getTime() / 1000);,
   notionalPrincipal: ap.utils.toPrecision(1000), // e.g. 1000 DAI
@@ -76,7 +74,7 @@ Now a set of order parameter is created.[ Consult the documentation](https://ap-
 // orderParams object for an asset without enhancements
 const orderParams = {
   termsHash: ap.utils.constants.ZERO_BYTES32, // optional store a hash of all terms attributes
-  productId,
+  templateId,
   customTerms,
   ownership: {
     creatorObligor: creator, // has to fulfill all obligations for the creator side

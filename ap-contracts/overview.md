@@ -19,10 +19,10 @@ Main Components:
 
 Content:
 
-* Explain Asset Actor
-* Explain Asset Registry
-* Explain Market Object Registry
-* Explain Product Registry
+* Explain AssetActor
+* Explain AssetRegistry
+* Explain MarketObjectRegistry
+* Explain TemplateRegistry
 * Explain Ownership
 * Order
 * Enhancement

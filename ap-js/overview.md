@@ -46,21 +46,21 @@ const ap = await AP.init(
 ```typescript
 const orderParams: OrderParams = {
   termsHash: string; // hash of the entire terms object of the asset
-  productId: string; // id of the product which this asset should be based on
+  templateId: string; // id of the template which this asset should be based on
   customTerms: CustomTerms; // CustomTerms of the asset
   ownership: AssetOwnership; // ownership of the asset
   expirationDate: string; // timestamp of when this order expires
   engine: string; // address of the ACTUS Engine for the asset 
   enhancement_1?: { // optional object describing the first enhancement
     termsHash: string; // hash of the entire terms object of the first enhancement
-    productId: string; // id of the product the first enhancment should based on
+    templateId: string; // id of the template the first enhancment should based on
     customTerms: CustomTerms; // CustomTerms of the first enhancement
     ownership: AssetOwnership;  // ownership of the first enhancement
     engine: string; // address of the ACTUS Engine for the first enhancement
   } | null;
   enhancement_2?: { // optional object describing the second enhancement
     termsHash: string; // hash of the entire terms object of the second enhancement
-    productId: string; // id of the product the second enhancment should based on
+    templateId: string; // id of the template the second enhancment should based on
     customTerms: CustomTerms; // CustomTerms of the second enhancement
     ownership: AssetOwnership;  // ownership of the second enhancement
     engine: string; // address of the ACTUS Engine for the second enhancement

@@ -13,7 +13,7 @@
 ## AP.js <a id="ap-js"></a>
 
 * [Overview](ap-js/overview.md)
-* [Products](ap-js/available-product-templates.md)
+* [Templates](ap-js/available-product-templates.md)
 * [Tokenization](ap-js/tokenization.md)
 
 ## AP-Contracts
