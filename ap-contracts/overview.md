@@ -19,16 +19,18 @@ Main Components:
 
 Content:
 
-* Explain AssetActor
-* Explain AssetRegistry
-* Explain MarketObjectRegistry
-* Explain TemplateRegistry
+* Explain Asset Actor
+* Explain Asset Registry
+* Explain Market Object Registry
+* Explain Product Registry
 * Explain Ownership
 * Order
 * Enhancement
 * Terms \(Custom Terms/ Terms/ ...\)
-* Schedule
+* Schedules & Events
 * Progress/ State Machine
+
+
 
 
 
