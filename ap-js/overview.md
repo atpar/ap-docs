@@ -108,6 +108,8 @@ Retrieve information of the asset such as the terms, the state or the ownership.
 
 ```typescript
 const terms = await asset.getTerms();
+const state = await asset.getState();
+const ownership = await asset.getOwnership();
 ```
 
 Retrieve the projected schedule of the asset \(does not contain unscheduled events such as CD\)
