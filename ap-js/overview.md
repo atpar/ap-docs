@@ -6,10 +6,10 @@ description: >-
 
 # Overview
 
-### Important Resources
+### Resources
 
-* [GitHub Repository](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)
-* AP.js [API Documentation](https://ap-js.actus-protocol.io/)
+* \*\*\*\*[**GitHub Repository**](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)\*\*\*\*
+* \*\*\*\*[**API Documentation**](https://ap-js.actus-protocol.io/)\*\*\*\*
 
 ### Usage
 
