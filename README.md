@@ -4,11 +4,6 @@ description: Understand what ACTUS Protocol is all about and what its main featu
 
 # Introduction
 
-{% hint style="warning" %}
-WORK IN PROGRESS  
-This documentation is momentarily being created.
-{% endhint %}
-
 {% hint style="danger" %}
 The ACTUS Protocol has not been audited, yet. Don't put your funds at risk!
 {% endhint %}
