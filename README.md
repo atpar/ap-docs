@@ -2,7 +2,7 @@
 description: Understand what ACTUS Protocol is all about and what its main features are
 ---
 
-# ACTUS Protocol Introduction
+# Introduction
 
 {% hint style="warning" %}
 WORK IN PROGRESS  

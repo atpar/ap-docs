@@ -1,6 +1,6 @@
 # Table of contents
 
-* [ACTUS Protocol Introduction](README.md)
+* [Introduction](README.md)
 * [Architecture](architecture.md)
 * [Cheat Sheet](cheat-sheet.md)
 

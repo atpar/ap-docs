@@ -6,23 +6,35 @@ A template is comprises a set of `TemplateTerms` \(see. ...\) and `TemplateSched
 
 Anyone is able to register new  templates. `ap.js` provides methods for generating  `TemplateTerms` and `TemplateSchedules`from an ACTUS terms object.  
 
-The number of events for `TemplateSchedules` is bound by the block gas limit \(~ 8Mio. gas for Görli Testnet\). 
-
-#### Registering a new Template via the `Template` class from an ACTUS terms object
+#### Deriving `TemplateTerms` and `TemplateSchedules` and  from an ACTUS terms object
 
 ```typescript
-const template = await Template.create(ap, TERMS);
+const templateTerms = ap.utils.convert.toTemplateTerms(TERMS);
 
-// obtaining the registered TemplateTerms and TemplateSchedules
-const templateTerms = await template.getTemplateTerms();
-const templateSchedules = await template.getTemplateSchedules();
+// provide the corresponding ACTUS Engine and the ACTUS terms object
+const templateSchedules = await ap.utils.schedule.generateTemplateSchedules(
+  ap.contracts.engine(ENGINE_ADDRESS),
+  TERMS
+);
 ```
 
-### Registered Templates on Görli Testnet
+#### Registering a new template
+
+The number of events for `TemplateSchedules` is bound by the block gas limit \(~ 8Mio. gas for Görli Testnet\). 
+
+```typescript
+const tx = await ap.contracts.templateRegistry.methods.registerTemplate(
+  templateTerms,
+  templateSchedules
+).send({ from: ACCOUNT });
+
+// retrieve the id of the template from the event logs
+const { templateId } = tx.events.RegisteredTemplate.returnValues;
+```
+
+### Registered Template
 
 | TemplateId | Template Description |
 | :--- | :--- |
-| 0x84ef200c6c8acd8caac299d38d41b39ac8f863837f1d3f8bf7e9de7eef750117 | Buyer 3M-Amortizing Loan |
-| 0x51f25b95a07d775a7d09751016b8d913b158d2c8687dfdf8ee44c7b3ac32ed24 | Buyer 12M-Bond |
-| 0x9fd2391af29ad6ee431d9f36cd5e7204027b27e9d138719a6110763769abc8ff | Seller 2W-Bond |
+|  |  |
 
