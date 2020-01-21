@@ -1,6 +1,6 @@
 ---
 description: >-
-  This guide explains how to set up ACTUS Protocol and develop with it. It's the
+  This guide explains how to set up actus Protocol and develop with it. It's the
   ACTUS Protocol "Hello World" equivalent.
 ---
 

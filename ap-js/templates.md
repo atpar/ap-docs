@@ -25,4 +25,5 @@ const templateSchedules = await template.getTemplateSchedules();
 | 0x84ef200c6c8acd8caac299d38d41b39ac8f863837f1d3f8bf7e9de7eef750117 | Buyer 3M-Amortizing Loan |
 | 0x51f25b95a07d775a7d09751016b8d913b158d2c8687dfdf8ee44c7b3ac32ed24 | Buyer 12M-Bond |
 | 0x9fd2391af29ad6ee431d9f36cd5e7204027b27e9d138719a6110763769abc8ff | Seller 2W-Bond |
+| [view additional templates...](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/templates/goerli) |  |
 

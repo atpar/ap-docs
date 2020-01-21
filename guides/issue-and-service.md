@@ -39,7 +39,7 @@ const counterparty; // address of counterparty
 
 // choose a registered template which defines a simple PAM-based
 // loan with monthly interest payments from the TemplateRegistry
-const templateId = '0x84ef200c6c8acd8caac299d38d41b39ac8f863837f1d3f8bf7e9de7eef750117'; 
+const templateId = '...'; 
 ```
 
 Next, parameterize the template to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
