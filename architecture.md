@@ -24,7 +24,7 @@ description: Understand how the ACTUS Protocol components work together
 
 To understand how the ACTUS Protocol components work together, let's go through a couple of exemplary tasks and discuss them using the illustration below. The tasks have been simplified for this purpose but they nevertheless should give you a good general feeling of the inner workings.
 
-![](.gitbook/assets/image%20%282%29.png)
+![](.gitbook/assets/ap-architecture_ms1-architecture.png)
 
 #### Issue an asset
 
