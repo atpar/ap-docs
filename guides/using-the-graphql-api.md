@@ -16,15 +16,16 @@ In addition to the below queries, you can find some executable examples on the [
 
 The top level entities of the GraphQL schema are as follows:
 
+* Asset
+* Template 
 * Period 
 * Contract
 * Reference 
 * TemplateSchedule 
-* Template 
 * AssetOwnership 
 * State 
 * Schedule 
-* Event Asset
+* Event 
 
 To get a full understanding of the information you can retrieve via TheGraph, please check out the schema on the [subgraph page](https://thegraph.com/explorer/subgraph/atpar/actus-protocol) and look at the [subgraph definition](https://github.com/atpar/ap-subgraph).
 
