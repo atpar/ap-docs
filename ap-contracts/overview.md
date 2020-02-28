@@ -4,9 +4,10 @@ description: ACTUS Protocol smart contract system
 
 # Overview
 
-GitHub: [https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap-contracts](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap-contracts)
+### Resources
 
-Generated Documentation: [https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/docs/](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts)
+* \*\*\*\*[**GitHub Repository**](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts)\*\*\*\*
+* \*\*\*\*[**API Docs** ](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/docs/)\*\*\*\*
 
 `ap-contracts` is a collection of solidity contracts that comprise the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines for issuing and progressing ACTUS Protocol assets.
 
@@ -38,9 +39,9 @@ Content:
 
 In ACTUS Protocol we have defined subsets of the full [ACTUS contract term sheet](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). Using these subsets increases on-chain efficiency and enables the template system of ACTUS Protocol.
 
-**Terms:** The entire ACTUS compliant terms object. I is comprised of LifecycleTerms attributes, GeneratingTerms attributes and additional „meta“ attributes.
+**Terms:** The entire ACTUS compliant terms object. It is comprised of LifecycleTerms attributes, GeneratingTerms attributes and additional „meta“ attributes \(the latter two are not stored on-chain\).
 
-**GeneratingTerms:** Contains only those attributes that are necessary for generating schedules.
+**GeneratingTerms:** Contains only those attributes that are necessary for generating schedules \(also not stored on-chain\).
 
 **LifecycleTerms:** Contains only attributes used on-chain for evaluating the POF and STF and in the AssetActor \(e.g. for generating unscheduled events, settling obligations, enhancements\). Can be derived from TemplateTerms and CustomTerms objects.
 
