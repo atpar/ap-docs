@@ -26,5 +26,5 @@
 
 ## Subgraph
 
-* [Overview](subgraph/using-the-graphql-api.md)
+* [Overview](subgraph/overview.md)
 
