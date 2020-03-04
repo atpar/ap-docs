@@ -9,7 +9,6 @@
 * [Getting started](guides/getting-started.md)
 * [Issue and service a Loan](guides/issue-and-service.md)
 * [Tokenize an asset](guides/tokenize-an-asset.md)
-* [Using the GraphQL API](guides/using-the-graphql-api.md)
 
 ## AP.js <a id="ap-js"></a>
 
@@ -24,4 +23,8 @@
 ## ACTUS Solidity
 
 * [Overview](actus-solidity/overview.md)
+
+## Subgraph
+
+* [Using the GraphQL API](subgraph/using-the-graphql-api.md)
 
