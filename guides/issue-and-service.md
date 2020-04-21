@@ -46,13 +46,17 @@ Next, parameterize the template to your wishes by setting its terms. The `Custom
 
 ```typescript
 // parameterize the template
-const customTerms = {
-  // set to 0 to use the current block timestamp, or to a valid unix timestamp
-  anchorDate: Math.round((new Date()).getTime() / 1000),
-  // for brevity we are going to use the template without modifying it
-  overwrittenAttributesMap: '0',
-  overwrittenTerms: ap.utils.constants.EMPTY_LIFECYCLE_TERMS
-};
+
+const customTerms = ap.utils.conversion.deriveCustomTermsFromOverwrittenAttributesAndAnchorDate(
+  // define term attributes which we want to customize
+  {
+    notionalPrincipal: web3.utils.toWei(1000),
+    nominalInterestRate: web3.utils.toWei(0.05)
+  },
+  // set the anchorDate to 0 to use the current block timestamp,
+  // or to a valid unix timestamp
+  Math.round((new Date()).getTime() / 1000)
+);
 ```
 
 Now a set of order parameter is created.[ Consult the documentation](https://ap-js.actus-protocol.io/interfaces/orderparams.html%20) for a description of all possible parameters.
