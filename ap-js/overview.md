@@ -51,12 +51,14 @@ const orderParams: OrderParams = {
   ownership: AssetOwnership; // ownership of the asset
   expirationDate: string; // timestamp of when this order expires
   engine: string; // address of the ACTUS Engine for the asset 
+  admin: string, // address of an admin (optional - set to 0x0)
   enhancement_1?: { // optional object describing the first enhancement
     termsHash: string; // hash of the entire terms object of the first enhancement
     templateId: string; // id of the template the first enhancment should based on
     customTerms: CustomTerms; // CustomTerms of the first enhancement
     ownership: AssetOwnership;  // ownership of the first enhancement
     engine: string; // address of the ACTUS Engine for the first enhancement
+    admin: string, // address of an admin (optional - set to 0x0)
   } | null;
   enhancement_2?: { // optional object describing the second enhancement
     termsHash: string; // hash of the entire terms object of the second enhancement
@@ -64,6 +66,7 @@ const orderParams: OrderParams = {
     customTerms: CustomTerms; // CustomTerms of the second enhancement
     ownership: AssetOwnership;  // ownership of the second enhancement
     engine: string; // address of the ACTUS Engine for the second enhancement
+    admin: string, // address of an admin (optional - set to 0x0)
   } | null;
 };
 
@@ -122,9 +125,9 @@ Settlement of obligations: The next obligation is the most immediate obligation 
 
 ```typescript
 // event type, schedule time of the event
-const event = ap.utils.decodeEvent(await asset.getNextEvent());
+const event = ap.utils.decodeEvent(await asset.getNextScheduledEvent());
 // payment information of the event
-const payment = await asset.getNextPayment();
+const payment = await asset.getNextScheduledPayment();
 ```
 
 Progressing the state of the asset. Requires that the Asset Actor has sufficient allowance to settle the obligation of the pending event. If there are unsettled obligation for the pending event, the actor will transition the state of the asset to a non-performant state.

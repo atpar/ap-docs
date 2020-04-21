@@ -25,7 +25,7 @@ We assume you have completed the [Getting started](getting-started.md) guide.
 
 First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a template from the available templates.
 
-To speed up things up, we go with an already registered template which defines a simple loan.
+To speed up things up, we go with an already registered template which defines a simple loan. \(You can find all the currently registered templates in the [repository](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/templates/goerli).\)
 
 ```typescript
 import { AP, Order } from './ap.js';
@@ -39,7 +39,7 @@ const counterparty; // address of counterparty
 
 // choose a registered template which defines a simple PAM-based
 // loan with monthly interest payments from the TemplateRegistry
-const templateId = '0x84ef200c6c8acd8caac299d38d41b39ac8f863837f1d3f8bf7e9de7eef750117'; 
+const templateId = '0x886284d11a0c715387f587046bfa9d8b87c532e656a483a5603ebf73c92b2f94'; 
 ```
 
 Next, parameterize the template to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
@@ -47,24 +47,11 @@ Next, parameterize the template to your wishes by setting its terms. The `Custom
 ```typescript
 // parameterize the template
 const customTerms = {
-  anchorDate: Math.round((new Date()).getTime() / 1000);,
-  notionalPrincipal: ap.utils.toPrecision(1000), // e.g. 1000 DAI
-  nominalInterestRate: ap.utils.toPrecision(0.05), // e.g. 5%
-  premiumDiscountAtIED: '0',
-  rateSpread: '0',
-  lifecap: '0',
-  lifeFloor: '0',
-  coverageOfCreditEnhancement: '0',
-  contractReference_1: {
-    object: ap.utils.constants.ZERO_BYTES32,
-    contractReferenceType: '0',
-    contractReferenceRole: '0'
-  },
-  contractReference_2: {
-    object: ap.utils.constants.ZERO_BYTES32,
-    contractReferenceType: '0',
-    contractReferenceRole: '0'
-  }
+  // set to 0 to use the current block timestamp, or to a valid unix timestamp
+  anchorDate: Math.round((new Date()).getTime() / 1000),
+  // for brevity we are going to use the template without modifying it
+  overwrittenAttributesMap: '0',
+  overwrittenTerms: ap.utils.constants.EMPTY_LIFECYCLE_TERMS
 };
 ```
 
@@ -83,7 +70,8 @@ const orderParams = {
     counterpartyBeneficiary: counterparty // receives all positive cash flow for the counterparty
   },
   expirationDate: String(customTerms.anchorDate), // after this date the order cannot be submitted on chain
-  engine: ap.contracts.pamEngine.options.address // address of the ACTUS PAM engine
+  engine: ap.contracts.pamEngine.options.address, // address of the ACTUS PAM engine
+  admin: ap.utils.constants.ZERO_ADDRESS // optional set a admin address for the ability to modify the asset once issued
 } 
 ```
 
@@ -112,7 +100,7 @@ When the counterparty has received the order, she instantiates the order, signs 
 // continue as counterparty
 // -------------------------------------------------------------
 
-const counterparty = (await web3.eth.getAccounts())[0];
+const counterparty = (await web3.eth.getAccounts())[1];
 const orderData; // obtain orderData through a communication channel
 
 // instantiate an order through orderData
@@ -144,24 +132,24 @@ Now the lender has to pay the principal of the loan to the debtor. The lender ha
 
 // obtain the next obligation
 const { eventType, scheduleTime } = ap.utils.schedule.decodeEvent(
-  asset.getNextEvent()
+  await asset.getNextScheduledEvent()
 );
 
 // assume scheduleTime >= Math.round((new Date()).getTime() / 1000);
 // pre-payments are currently not supported
 
-const { amount, token } = await asset.getNextPayment();
+const { amount, token } = await asset.getNextScheduledPayment();
 
 // set the allowance for the Actor to settle the obligation
 // on behalf of the creator
-await asset.approveNextPayment();
+await asset.approveNextScheduledPayment();
 
 // settle the initial exchange and progress the state of the asset.
 // This actually transfers the required ammount of tokens.
 await asset.progress();
 ```
 
-The entire projected schedule of the asset can be obtained via:
+The entire projected schedule of the asset can be evaluated via:
 
 ```typescript
 const schedule = await asset.getSchedule();

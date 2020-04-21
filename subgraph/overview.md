@@ -6,7 +6,7 @@ description: Retrieve information about the state of ACTUS Protocol assets vie G
 
 The easiest way to access on-chain information about ACTUS Protocol Assets is to use GraphQL via TheGraph. We have set up a subgraph for the _Goerli_ deployment of ACTUS Protocol:
 
-{% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol" %}
+{% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol-goerli" %}
 
 In addition to the below queries, you can find some executable examples on the [playground](https://thegraph.com/explorer/subgraph/atpar/actus-protocol?selected=playground). 
 
