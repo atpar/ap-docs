@@ -35,7 +35,7 @@ To initialize the project, set your web3 provider \(e.g. [Infura](https://infura
 
 ```typescript
 import Web3 from 'web3.js'; 
-import { AP } from './ap.js';
+import { AP } from '@atpar/ap.js';
 
 // connecting to Görli Testnet via infura
 const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
