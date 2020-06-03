@@ -28,7 +28,7 @@ First, set yourself as the creator, optionally set the address for the counterpa
 To speed up things up, we go with an already registered template which defines a simple loan. \(You can find all the currently registered templates in the [repository](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/templates/goerli).\)
 
 ```typescript
-import { AP, Order } from './ap.js';
+import { AP, Order } from '@atpar/ap.js';
 
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
