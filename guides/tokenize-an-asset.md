@@ -21,7 +21,7 @@ In this guide you will:
 Begin with instantiating an existing ACTUS asset for which you are the beneficiary. The asset is identified by its _asset id_ that was returned during creation.
 
 ```typescript
-import { AP, Asset } from 'ap.js';
+import { AP, Asset } from '@atpar/ap.js';
 
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
