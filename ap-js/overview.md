@@ -23,7 +23,7 @@ Initializing the ACTUS Protocol library.
 
 ```typescript
 import Web3 from 'web3.js'; 
-import { AP, Asset, Order, APTypes } from './ap.js';
+import { AP, Asset, Order, APTypes } from '@atpar/ap.js';
 
 // connecting to Görli Testnet via infura
 const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
