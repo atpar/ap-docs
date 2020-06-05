@@ -39,7 +39,7 @@ const counterparty; // address of counterparty
 
 // choose a registered template which defines a simple PAM-based
 // loan with monthly interest payments from the TemplateRegistry
-const templateId = '0x886284d11a0c715387f587046bfa9d8b87c532e656a483a5603ebf73c92b2f94'; 
+const templateId = '0xf897c17a13a2ad8da2f3462857d4616f23200739c855de2de84df8950b8e28c4'; 
 ```
 
 Next, parameterize the template to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
@@ -47,16 +47,12 @@ Next, parameterize the template to your wishes by setting its terms. The `Custom
 ```typescript
 // parameterize the template
 
-const customTerms = ap.utils.conversion.deriveCustomTermsFromOverwrittenAttributesAndAnchorDate(
-  // define term attributes which we want to customize
-  {
-    notionalPrincipal: web3.utils.toWei(1000),
-    nominalInterestRate: web3.utils.toWei(0.05)
-  },
-  // set the anchorDate to 0 to use the current block timestamp,
-  // or to a valid unix timestamp
-  Math.round((new Date()).getTime() / 1000)
-);
+// We will deribve the customTerms from the default terms of our template
+const customTerms = ap.utils.conversion.deriveCustomTerms(terms);
+
+// It is also possible to use your own set of custom terms and derive the object like s
+// const customTerms = ap.utils.conversion.deriveCustomTermsFromTermsAndTemplateTerms(updatedTerms, templateTerms);
+
 ```
 
 Now a set of order parameter is created.[ Consult the documentation](https://ap-js.actus-protocol.io/interfaces/orderparams.html%20) for a description of all possible parameters.
