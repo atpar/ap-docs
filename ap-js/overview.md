@@ -85,7 +85,7 @@ Instantiate an `Order` from `OrderData`.
 const order = Order.load(ap, orderData);
 ```
 
-Signing an order \(as creator or counterparty obligor\).
+Signing an order \(as creator or counterparty obligor\). NOTE: this functionality requires the web3 provider to be EIP712 compliant and implement the `signTypedData` function. See our [example project](https://github.com/atpar/ap-js-example/blob/master/index.js#L168-L172) for a workaround using eth-sig-util.
 
 ```typescript
 await order.signOrder();
