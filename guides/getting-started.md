@@ -10,7 +10,7 @@ description: >-
 The provided instructions have been tested on macOS and Ubuntu. If you run into any issues with your setup - let us now on Discord.
 {% endhint %}
 
-This guide uses the current version of ACTUS Protocol smart contracts deployed on _Goerli  Testnet_.
+This guide uses the current version of ACTUS Protocol smart contracts deployed on _Goerli  Testnet_. To see a full working example of the `ap.js` library in action check out our [example repository](https://github.com/atpar/ap-js-example).
 
 ### Install prerequisites
 
