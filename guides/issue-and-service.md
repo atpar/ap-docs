@@ -77,11 +77,14 @@ const orderParams = {
 
 Once the terms and order parameters have been set, we can create the actual order and sign it with our Ethereum account. 
 
+NOTE: signing the order will only work with an EIP712 compliant provider such as Metamask, if you wish to implement order signing with a different provider type you will need to extract the private key and use the [eth-sig-util](https://github.com/MetaMask/eth-sig-util) package for signing typed data. See the [example project ](https://github.com/atpar/ap-js-example/blob/master/index.js#L168-L172)for more details on how to manually sign orders.
+
 ```typescript
 // create the order
 const order = Order.create(ap, orderParams);
 
 // sign the order as the creator
+// this will only work with a provider that 
 await order.signOrder();
 
 // obtain the order in a serialized format to be send to 
