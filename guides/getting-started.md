@@ -27,6 +27,8 @@ In your shell, execute the following commands to create a new project and to ins
 mkdir ap-tutorial && cd ap-tutorial
 yarn init -y # initalize a default project
 yarn add @atpar/ap.js 
+yarn add @atpar/ap-contracts 
+
 ```
 
 ### Getting started with ap.js
@@ -42,6 +44,6 @@ const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura
 
 const defaultAccount = (await web3.eth.getAccounts())[0];
 
-const ap = await AP.init(web3, defaultAccount);
+const ap = await AP.init(web3);
 ```
 

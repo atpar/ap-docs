@@ -14,21 +14,20 @@ In the scenario we have a creator, which is the lender and a counterparty which 
 
 In this guide you will:
 
-* Choose a template and define the terms of the asset
-* Create and sign an order for the asset
-* Co-sign the order as the counterparty and issue the asset through ACTUS Protocol
+* Define the terms of the asset
+* Issue the asset through ACTUS Protocol
 * Service the asset by paying the principal of the loan to the debtor \(counterparty\)
 
-## Configure the template and create an order
+## Define the Terms
 
 We assume you have completed the [Getting started](getting-started.md) guide. 
 
 First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a template from the available templates.
 
-To speed up things up, we go with an already registered template which defines a simple loan. \(You can find all the currently registered templates in the [repository](https://github.com/atpar/ap-monorepo/tree/master/packages/ap-contracts/templates/goerli).\)
+To speed up things up, you can use the PAM terms from our[ example repository.](https://github.com/atpar/ap-js-example/blob/master/PAMTerms.json)
 
 ```typescript
-import { AP, Order } from '@atpar/ap.js';
+import { AP } from '@atpar/ap.js';
 
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
@@ -36,92 +35,42 @@ import { AP, Order } from '@atpar/ap.js';
 
 const creator = (await web3.eth.getAccounts())[0];
 const counterparty; // address of counterparty
+const anyone = (await web3.eth.getAccounts())[2] // used to make calls that could be made by any address
 
-// choose a registered template which defines a simple PAM-based
-// loan with monthly interest payments from the TemplateRegistry
-const templateId = '0xf897c17a13a2ad8da2f3462857d4616f23200739c855de2de84df8950b8e28c4'; 
+// Terms for a simple PAM-based loan with monthly interest payments
+const PAMTerms = require('./terms.json'); 
+const terms = {
+    ...PAMTerms,
+    currency: '0xEcFcaB0A285d3380E488A39B4BB21e777f8A4EaC' // address of ERC20 token to use as settlement currency
+}
 ```
 
-Next, parameterize the template to your wishes by setting its terms. The `CustomTerms` object is documented [here](https://ap-js.actus-protocol.io/interfaces/customterms.html). To understand the meaning of the terms parameters, you can have a look at the [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary/blob/master/actus-dictionary-terms.json). These terms need to be negotiated with the counterparty.
+Set up the asset initialization parameters:
 
 ```typescript
-// parameterize the template
-
-// We will deribve the customTerms from the default terms of our template
-const customTerms = ap.utils.conversion.deriveCustomTerms(terms);
-
-// It is also possible to use your own set of custom terms and derive the object like s
-// const customTerms = ap.utils.conversion.deriveCustomTermsFromTermsAndTemplateTerms(updatedTerms, templateTerms);
-
-```
-
-Now a set of order parameter is created.[ Consult the documentation](https://ap-js.actus-protocol.io/interfaces/orderparams.html%20) for a description of all possible parameters.
-
-```typescript
-// orderParams object for an asset without enhancements
-const orderParams = {
-  termsHash: ap.utils.constants.ZERO_BYTES32, // optional store a hash of all terms attributes
-  templateId,
-  customTerms,
-  ownership: {
+// set up ownership structure
+const ownership = {
     creatorObligor: creator, // has to fulfill all obligations for the creator side
     creatorBeneficiary: creator, // receives all positive cash flow of the creator side
     counterpartyObligor: counterparty, // has to fulfill all obligations for the counterparty
-    counterpartyBeneficiary: counterparty // receives all positive cash flow for the counterparty
-  },
-  expirationDate: String(customTerms.anchorDate), // after this date the order cannot be submitted on chain
-  engine: ap.contracts.pamEngine.options.address, // address of the ACTUS PAM engine
-  admin: ap.utils.constants.ZERO_ADDRESS // optional set a admin address for the ability to modify the asset once issued
-} 
+    counterpartyBeneficiary: counterparty, // receives all positive cash flow for the counterparty
+}
+
+// Use the conversion utils method to get the schedule
+const schedule = await ap.utils.schedule.computeScheduleFromTerms(ap.contracts.pamEngine, terms);
+
 ```
 
-Once the terms and order parameters have been set, we can create the actual order and sign it with our Ethereum account. 
-
-NOTE: signing the order will only work with an EIP712 compliant provider such as Metamask, if you wish to implement order signing with a different provider type you will need to extract the private key and use the [eth-sig-util](https://github.com/MetaMask/eth-sig-util) package for signing typed data. See the [example project ](https://github.com/atpar/ap-js-example/blob/master/index.js#L168-L172)for more details on how to manually sign orders.
+Use the appropriate Asset Actor contract \(in our case the PAMActor\) to initialize and register the new asset on chain:
 
 ```typescript
-// create the order
-const order = Order.create(ap, orderParams);
-
-// sign the order as the creator
-// this will only work with a provider that 
-await order.signOrder();
-
-// obtain the order in a serialized format to be send to 
-// the counterparty or a relayer service
-const orderData = order.serializeOrder();
-```
-
-This is the point where we hand over to the counterparty, who wants to take out the loan.
-
-## Take the order as the counterparty and issue the asset
-
-When the counterparty has received the order, she instantiates the order, signs it and issues it on Ethereum. She could also send the signed OrderData object to a third party relayer for issuance.
-
-```typescript
-// -------------------------------------------------------------
-// continue as counterparty
-// -------------------------------------------------------------
-
-const counterparty = (await web3.eth.getAccounts())[1];
-const orderData; // obtain orderData through a communication channel
-
-// instantiate an order through orderData
-const order = Order.load(orderData);
-
-// sign the order as counterparty
-await order.signOrder();
-
-// issue the filled order on Ethereum
-await order.issueAssetFromOrder();
-
-// -------------------------------------------------------------
-// retrieve the issued asset
-// -------------------------------------------------------------
-
-ap.onNewAssetIssued(async (asset) => {
-  console.log(await asset.getTerms());
-});
+const initializeAssetTx = await ap.contracts.pamActor.methods.initialize(
+    terms, // Asset Terms
+    schedule, // Schedule generated from engine
+    ownership, // Ownership structure
+    ap.contracts.pamEngine.options.address, // Asset engine contract addres
+    ap.utils.constants.ZERO_ADDRESS // admin address (optional)
+).send({from: creator})
 ```
 
 ## Maintaining the asset
@@ -134,50 +83,26 @@ Now the lender has to pay the principal of the loan to the debtor. The lender ha
 // -------------------------------------------------------------
 
 // obtain the next obligation
-const { eventType, scheduleTime } = ap.utils.schedule.decodeEvent(
-  await asset.getNextScheduledEvent()
-);
+const nextScheduledEvent = await ap.contracts.pamRegistry.methods.getNextScheduledEvent(assetId).call();
+
+const { eventType, scheduleTime } = ap.utils.schedule.decodeEvent(nextScheduledEvent);
 
 // assume scheduleTime >= Math.round((new Date()).getTime() / 1000);
 // pre-payments are currently not supported
 
-const { amount, token } = await asset.getNextScheduledPayment();
+// Approve actor to pay settlement
+const amount = terms.notionalPrincipal;
+const currency = terms.currency;
+await ap.contracts.erc20(currency).methods.approve(
+    ap.contracts.pamActor.options.address, 
+    amount
+);
 
-// set the allowance for the Actor to settle the obligation
-// on behalf of the creator
-await asset.approveNextScheduledPayment();
-
-// settle the initial exchange and progress the state of the asset.
-// This actually transfers the required ammount of tokens.
-await asset.progress();
+// progress the asset
+await ap.contracts.pamActor.methods.progress(assetId).send({from: anyone});
 ```
 
-The entire projected schedule of the asset can be evaluated via:
 
-```typescript
-const schedule = await asset.getSchedule();
-let state = await ap.contracts.pamEngine.methods.computeInitialState(terms);
-
-for (event of schedule) {
-  const payoff = ap.contracts.pamEngine.methods.computePayoffForEvent(
-    terms,
-    state,
-    event,
-    ap.utils.constants.ZERO_BYTES32
-  );
-  const state = ap.contracts.pamEngine.methods.computeStateForEvent(
-    terms,
-    state,
-    event,
-    ap.utils.constants.ZERO_BYTES32
-  );
-  
-  console.log('Event: ' + ap.utils.schedule.decodeEvent(event));
-  console.log('Events payoff: ' + payoff);
-  console.log('State: ' + state);
-  console.log();
-}
-```
 
 
 
