@@ -6,7 +6,7 @@ description: Understand how the ACTUS Protocol components work together
 
 ## Components
 
-![](.gitbook/assets/ap-architecture_ms1-components.png)
+![](.gitbook/assets/ap-architecture_ms1-components-1-.jpg)
 
 ### ap.js
 
@@ -24,7 +24,7 @@ description: Understand how the ACTUS Protocol components work together
 
 To understand how the ACTUS Protocol components work together, let's go through a couple of exemplary tasks and discuss them using the illustration below. The tasks have been simplified for this purpose but they nevertheless should give you a good general feeling of the inner workings.
 
-![](.gitbook/assets/ap-architecture_ms1-architecture.png)
+![](.gitbook/assets/ap-architecture_ms1-architecture_2.jpg)
 
 #### Issue an asset
 
@@ -36,7 +36,7 @@ To progress an asset the _Asset Actor_ is called through a transaction. It reads
 
 #### Publish Market Data
 
-Market Data Providers are whitelisted Ethereum accounts, e.g. trusted third parties or decentralized oracles, that publish data to the _Market Object Registry_.
+Market Data Providers are whitelisted Ethereum accounts, e.g. trusted third parties or decentralized oracles, that publish data to the _Data Registry_.
 
 
 
