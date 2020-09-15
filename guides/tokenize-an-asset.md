@@ -6,7 +6,7 @@ description: Tokenize the cash flow as a beneficiary of an asset
 
 ## Scenario
 
-When an asset is issued it's not autmatically also "tokenized". In ACTUS Protocol, tokenization means to create a token that represents a certain type of cash flow of the asset. In the most simple case the beneficiary, e.g. the creditor, issues a number of tokens that represent a fraction of all positive cash flow, i.e. the interest and principal payments of the asset.
+When an asset is issued its not automatically also "tokenized". In ACTUS Protocol, tokenization means to create a token that represents a certain type of cash flow of the asset. In the most simple case the beneficiary, e.g. the creditor, issues a number of tokens that represent a fraction of all positive cash flow, i.e. the interest and principal payments of the asset.
 
 In this guide the creator and beneficiary of the asset creates an ERC-20 token extended with the Funds Distribution Standard \(ERC-2222\). As a token holder she withdraws her portion of the cash flow.
 
@@ -16,43 +16,52 @@ In this guide you will:
 * Tokenize an asset
 * Withdraw your fraction of the cash flow from the token contract
 
-## Load an asset
+## Initialize the Funds Distribution Token
 
-Begin with instantiating an existing ACTUS asset for which you are the beneficiary. The asset is identified by its _asset id_ that was returned during creation.
+Begin with instantiating an existing ACTUS asset for which you are the beneficiary. The asset is identified by its _asset id_ that was returned during creation. Use this asset id to derive the settlement token \(currency\) address from the asset terms.
+
+As a beneficiary, you have the right to tokenize your side of the contract. Make sure to set sensible parameters as this is how the token will be represented in many wallets. Also be sure to understand the effects of the initial supply parameter. In order to avoid rounding errors and the likes, it makes sense to multiply it with 10^18 \(`web3.utils.toWei()`\).
 
 ```typescript
-import { AP, Asset } from '@atpar/ap.js';
-
+import { AP } from '@atpar/ap.js';
+import VanillaFDTArtifact from '@atpar/ap-contracts/artifacts/VanillaFDT.min.json'
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
 // -------------------------------------------------------------
 
 const creatorBeneficiary = (await web3.eth.getAccounts())[0];
+const fractionalOwner = (await web3.eth.getAccounts())[1];
 
-// loading an asset as the creator beneficiary
-const asset = await Asset.load(ap, ASSET_ID);
+// Derive terms and currency address with ASSET_ID 
+const terms = await ap.contracts.pamRegistry.methods.getTerms(ASSET_ID).call();
+const settlementTokenAddress = terms.currency;
 
-// assuming:
-// (await asset.getOwnership()).creatorBeneficiary === creatorBeneficiary;
+// Set initialization arguments
+const name = 'FundsDistributionToken';
+const symbol = 'FDT';
+const initialAmount = web3.utils.toWei('100'); // minted to owner
 
+const arguments = [name, symbol, settlementTokenAddress, creatorBeneficiary, initialAmount];
+const fdtInterface = new web3.eth.Contract(VanillaFDTArtifact.abi);
+// deploy new FDT contract
+const fdtContract = fdtInterfacedeploy({ 
+    data: VanillaFDTArtifact.bytecode, 
+    arguments
+}).send({ from: creatorBeneficiary });
 
+// Share ownership with fractionalOwner
+// send 20 tokens so that fractionalOwner now owns 20/100 of the created tokens
+// and thus owns the rights to a 1/5 share of incoming payments 
+await fdtContract.methods.transfer(fractionalOwner, web3.utils.toWei('20')).send({from: creatorBeneficiary});
 ```
 
-### Tokenize the asset 
+### Tokenize the asset
 
-As a beneficiary, you have the right to tokenize your side of the contract. Make sure to set sensible parameters as this is how the token will be represented in many wallets. Also be sure to understand the effects of the initial supply parameter. In order to avoid rounding errors and the likes, it makes sense to multiply it with 10^18 \(`web3.utils.toWei()`\).
+Now that we have created the FDT as a vehicle for fractional ownership of settlement token payments, we must set the FDT contract as the beneficiary of incoming payments made on an asset. To do this we need to call the appropriate asset registry contract to update the creator beneficiary.
 
 ```typescript
-// tokenizing payments paid towards the creator beneficiary
-// deploys a new FundsDistributionToken and updates the address
-// of the creator beneficiary to the address of the FDT
-const distributorAddress = await asset.tokenizeBeneficiary(
-  web3.utils.toHex('Distributor'), // name
-  web3.utils.toHex('FDT'), // symbol
-  web3.utils.toWei('1000000') // initial supply
-);
-
-// (await asset.getOwnership()).creatorBeneficiary === distributorAddress;
+await ap.contracts.pamRegistry.methods.setCreatorBeneficiary(ASSET_ID, fdt.options.address)
+    .send({from: creatorBeneficiary});
 ```
 
 ### Withdraw Funds
@@ -64,14 +73,13 @@ Later, when some payments by the debtor have been made, the token holders can wi
 // withdrawing funds paid into the FDT
 // -------------------------------------------------------------
 
+// to ensure that the internal FDT balance calculations are up to date
+await fdt.methods.updateFundsReceived().send({from: anyone})
+
 // ...
-await ap.contracts.distributor(
-  distributorAddress
-).methods.withdrawableFundsOf(creatorBeneficiary).call();
+await fdt.methods.withdrawableFundsOf(creatorBeneficiary).call();
 
 // withdrawing ...
-await ap.contracts.distributor(
-  distributorAddress
-).methods.withdrawFunds().send({ from: creatorBeneficiary });
+await fdt.methods.withdrawFunds().send({ from: creatorBeneficiary });
 ```
 
