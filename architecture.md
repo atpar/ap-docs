@@ -1,5 +1,5 @@
 ---
-description: Understand how the ACTUS Protocol components work together
+description: How the ACTUS Protocol components work together
 ---
 
 # Architecture
@@ -18,7 +18,7 @@ description: Understand how the ACTUS Protocol components work together
 
 ### actus-solidity
 
-`actus-solidity` is an implementation of the ACTUS financial contract standard written in solidity. Its main features are creation of asset schedules from ACTUS contract terms and state progression.
+`actus-solidity` is an implementation of the ACTUS financial contract standard written in solidity. Its main features are creation of asset schedules from ACTUS contract terms and calculating state progression.
 
 ## The Inner Workings
 
@@ -28,15 +28,15 @@ To understand how the ACTUS Protocol components work together, let's go through 
 
 #### Issue an asset
 
-When issuing an asset a transaction containing a signed order object is sent to the _Asset Issuer_. If collateral is provided in the order the _Asset Issuer_ locks it in the _Custodian_ component. The _Asset Issuer_ then initializes the asset through the _Asset Actor,_  which in turn creates an entry in the _Asset Registry_. 
+When issuing an asset a transaction is sent to the `initialize()` method containing the asset terms, ownership information and a reference to an ACTUS Engine. As a result, the asset is now registered in the Asset Registry. The exact parameter set for initialization vary slightly between the contract types.
 
 #### Progress an asset
 
-To progress an asset the _Asset Actor_ is called through a transaction. It reads from the _Asset Registry_ and the ACTUS _Engines_ to verify the requirements for the state transition of the asset are met. If, for example, a payment is necessary to progress the asset's state, it is executed by the _Asset Actor \(assuming allowances where set at time of execution\)._ 
+To progress an asset the _Asset Actor_ is called through a transaction. It reads from the _Asset Registry_ and the ACTUS _Engines_ to verify the requirements for the state transition of the asset. If, for example, a payment is necessary to progress the asset's state, it is executed by the _Asset Actor \(assuming allowances were set at time of execution\)._ 
 
 #### Publish Market Data
 
-Market Data Providers are whitelisted Ethereum accounts, e.g. trusted third parties or decentralized oracles, that publish data to the _Data Registry_.
+Market Data Providers are whitelisted Ethereum accounts, e.g. decentralized oracles or trusted third parties that can publish data to the _Data Registry_.
 
 
 

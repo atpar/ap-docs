@@ -9,7 +9,6 @@ description: >-
 ### Resources
 
 * \*\*\*\*[**GitHub Repository**](https://github.com/atpar/ap-monorepo/tree/MS1/packages/ap.js)\*\*\*\*
-* \*\*\*\*[**API Documentation**](https://ap-js.actus-protocol.io/)\*\*\*\*
 
 ### Usage
 
@@ -41,8 +40,6 @@ const ap = await AP.init(
 #### 
 
 ### API Overview
-
-Also see the [API Documentation](https://ap-js.actus-protocol.io/)
 
 | API | Description |
 | :--- | :--- |
