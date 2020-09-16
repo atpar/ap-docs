@@ -8,7 +8,7 @@ description: >-
 
 
 
-{% hint style="danger" %}
+{% hint style="info" %}
 This software has not been audited, yet. Don't put your funds at risk!
 {% endhint %}
 
