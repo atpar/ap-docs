@@ -2,7 +2,7 @@
 description: ACTUS Protocol smart contract system
 ---
 
-# ap-contracts overview
+# Overview
 
 ### Resources
 

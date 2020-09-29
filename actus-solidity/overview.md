@@ -4,7 +4,7 @@ description: >-
   (https://www.actusfrf.org/algorithmic-standard)
 ---
 
-# actus-solidity overview
+# Overview
 
 ### Resources
 

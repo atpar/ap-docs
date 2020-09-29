@@ -17,13 +17,13 @@
 
 ## AP-Contracts
 
-* [ap-contracts overview](ap-contracts/overview.md)
+* [Overview](ap-contracts/overview.md)
 
 ## ACTUS Solidity
 
-* [actus-solidity overview](actus-solidity/overview.md)
+* [Overview](actus-solidity/overview.md)
 
 ## Subgraphs
 
-* [subgraph overview](subgraphs/overview.md)
+* [Overview](subgraphs/overview.md)
 
