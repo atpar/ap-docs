@@ -18,6 +18,7 @@
 ## AP-Contracts
 
 * [Overview](ap-contracts/overview.md)
+* [Example Contract Terms](ap-contracts/example-contract-terms.md)
 
 ## ACTUS Solidity
 

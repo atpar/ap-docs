@@ -12,8 +12,9 @@ description: >-
 * [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary)
 * Funds Distribution Standard - [ERC-2222](https://github.com/ethereum/EIPs/issues/2222)
 * The Graph for ACTUS Protocol
-  * [Rinkeby](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby)
-  * [Goerli](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-goerli)
+  * [Rinkeby-1](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby)
+  * [Rinkeby-2](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby-2)
+  * [Goerli-1](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-goerli)
 
 
 
