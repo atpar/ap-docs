@@ -22,7 +22,7 @@ This software has not been audited, yet. Don't put your funds at risk!
 * Progress assets throughout their life-cycle
 * Tokenize cash flows of assets
 
-AP is build on top of [`actus-solidity`](https://github.com/atpar/ap-monorepo/tree/master/packages/actus-solidity) a free and open-source implementation of the [ACTUS](https://www.actusfrf.org/) standard. 
+AP is built on top of [`actus-solidity`](https://github.com/atpar/ap-monorepo/tree/master/packages/actus-solidity) - a free and open-source implementation of the [ACTUS](https://www.actusfrf.org/) standard. 
 
 All ACTUS assets have a unified term sheet and a clear and well-defined schedule. External data, such as changing interest rates are supported through external market objects which can be connected to oracles. Assets can have credit enhancements such as on-chain collateral or legal guarantees.
 
