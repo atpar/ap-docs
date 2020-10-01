@@ -95,7 +95,6 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
    "maturityDate":"2021-09-02T10:53:26.000Z",
    "purchaseDate":null,
    "capitalizationEndDate":null,
-   
    "cycleAnchorDateOfInterestPayment":"2020-10-02T10:53:26.000Z",
    "cycleAnchorDateOfRateReset":null,
    "cycleAnchorDateOfScalingIndex":null,
@@ -137,7 +136,60 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
 This product reflects an open-ended performance certificate on an exchange-traded, underlying asset. The product offers the investor a bi-monthly redemption option.
 
 ```javascript
-TBD
+{
+    "contractType": "CERTF",
+    "calendar": "MF",
+    "contractRole": "BUY",
+    "dayCountConvention": "AA",
+    "businessDayConvention": "CSF",
+    "endOfMonthConvention": "EOM",
+    "couponType": "NOC",
+    
+    "currency": "0x1c36690810ad06fb15552657c7a8ff653eb46f76",
+    "settlementCurrency": null,
+    
+    "contractDealDate": "2020-06-18T00:00:00.000Z",
+    "statusDate": "2020-06-18T00:00:00.000Z",
+    "initialExchangeDate": null,
+    "maturityDate": null,
+    "issueDate": "2020-06-18T00:00:00.000Z",
+    "cycleAnchorDateOfRedemption": "2020-07-18T00:00:00.000Z",
+    "cycleAnchorDateOfTermination": null,
+    "cycleAnchorDateOfCoupon": null,
+    
+    "nominalPrice": "1000",
+    "issuePrice": "987.14",
+    "quantity": "1000",
+    "denominationRatio": "1",
+    "couponRate": "0",
+    
+    "gracePeriod": "10D",
+    "delinquencyPeriod": "90D",
+    "settlementPeriod": "2D",
+    "fixingPeriod": "0D",
+    "exercisePeriod": "1D",
+    
+    "cycleOfRedemption": "1M-",
+    "cycleOfTermination": "0D-",
+    "cycleOfCoupon": "0D-",
+
+    "contractStructure": {
+        "contractReference": [
+            {
+                "object": "0x43483232337276325f5246445f5241",
+                "object2": "0x756e646566696e6564",
+                "type": "MOC",
+                "role": "UDL"
+            },
+            {
+                "object": "0x43483232337276325f5246445f5154",
+                "object2": "0x756e646566696e6564",
+                "type": "MOC",
+                "role": "UDL"
+            }
+        ]
+    }
+}
 ```
 
 ## Single-Entity Credit Default Swap \(CEG\)
