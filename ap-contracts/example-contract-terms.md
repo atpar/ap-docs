@@ -4,7 +4,7 @@ description: ACTUS terms for some example contracts
 
 # Example Contract Terms
 
-## Tokenized Coupon-Paying Bond \(PAM\)
+## Coupon-Paying Bond \(PAM\)
 
 This product reflects an unsecured, fixed-rate coupon bearing bond with a 1 year lifetime. The product offers the investor a quarterly \(interest\) coupon payment.
 
@@ -129,6 +129,69 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
    "cycleOfScalingIndex":"0D-",
    "cycleOfFee":"0D-",
    "cycleOfPrincipalRedemption":"1M-",
+}
+```
+
+## Performance Certificate on Underlying ￼\(CERTF\)
+
+This product reflects an open-ended performance certificate on an exchange-traded, underlying asset. The product offers the investor a bi-monthly redemption option.
+
+```javascript
+TBD
+```
+
+## Single-Entity Credit Default Swap \(CEG\)
+
+This product protects the buyer from a credit event on a single underlying instrument.
+
+```javascript
+{
+   "contractType":"CEG",
+   "calendar":"MF",
+   "contractRole":"BUY",
+   "dayCountConvention":"A360",
+   "businessDayConvention":"CSMF",
+   "endOfMonthConvention":"SD",
+   "feeBasis":"A",
+   "creditEventTypeCovered":"DF",
+   
+   "currency":"0x6Ce7BFC48be104950D6506c7FC16486446a24261",
+   "settlementCurrency":null,
+   
+   "contractDealDate":"2020-10-01T14:29:24.000Z",
+   "statusDate":"2020-10-01T14:29:24.000Z",
+   "maturityDate":"2021-10-01T14:29:24.000Z",
+   "purchaseDate":null,
+   "cycleAnchorDateOfFee":null,
+   
+   "notionalPrincipal":"32",
+   "delinquencyRate":"0",
+   "feeAccrued":"0",
+   "feeRate":"0",
+   "priceAtPurchaseDate":"0",
+   "coverageOfCreditEnhancement":"1",
+   
+   "gracePeriod":"5D",
+   "delinquencyPeriod":"30D",
+   
+   "cycleOfFee":"0D-",
+   
+   "contractStructure":{
+      "contractReference":[
+         {
+            "object":"0xa6203756524a554bf7d6cfe88a9ac415c83ed65d123227bb2026d936e5a4bcdf",
+            "object2":"0x0000000000000000000000002194bd1c5f48eaccbdc2b894abe98afa116aced8",
+            "type":"CID",
+            "role":"COVE"
+         },
+         {
+            "object":"0x0000000000000000000000000000000000000000000000000000000000000000",
+            "object2":"0x0000000000000000000000000000000000000000000000000000000000000000",
+            "type":"CNT",
+            "role":"UDL"
+         }
+      ]
+   }
 }
 ```
 
