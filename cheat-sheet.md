@@ -10,6 +10,7 @@ description: >-
 * [Developer Portal](https://developer.actus-protocol.io/)
 * ACTUS Protocol Smart Contract [addresses](https://github.com/atpar/ap-monorepo/blob/master/packages/ap-contracts/deployments.json)
 * [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary)
+* [Example contract Terms](ap-contracts/example-contract-terms.md)
 * Funds Distribution Standard - [ERC-2222](https://github.com/ethereum/EIPs/issues/2222)
 * The Graph for ACTUS Protocol
   * [Rinkeby-1](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby)
