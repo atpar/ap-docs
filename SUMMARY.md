@@ -9,6 +9,7 @@
 * [Getting started](guides/getting-started.md)
 * [Issue and service a Loan](guides/issue-and-service.md)
 * [Tokenize an asset](guides/tokenize-an-asset.md)
+* [Example Contract Terms](guides/example-contract-terms.md)
 
 ## AP.js <a id="ap-js"></a>
 
@@ -18,7 +19,6 @@
 ## AP-Contracts
 
 * [Overview](ap-contracts/overview.md)
-* [Example Contract Terms](ap-contracts/example-contract-terms.md)
 
 ## ACTUS Solidity
 
