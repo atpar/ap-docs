@@ -27,7 +27,7 @@ First, set yourself as the creator, optionally set the address for the counterpa
 To speed up things up, you can use the PAM terms from our[ example repository.](https://github.com/atpar/ap-js-example/blob/master/PAMTerms.json)
 
 ```typescript
-import { AP } from '@atpar/ap.js';
+import { AP } from '@atpar/protocol';
 
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js

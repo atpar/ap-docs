@@ -23,8 +23,8 @@ Begin with instantiating an existing ACTUS asset for which you are the beneficia
 As a beneficiary, you have the right to tokenize your side of the contract. Make sure to set sensible parameters as this is how the token will be represented in many wallets. Also be sure to understand the effects of the initial supply parameter. In order to avoid rounding errors and the likes, it makes sense to multiply it with 10^18 \(`web3.utils.toWei()`\).
 
 ```typescript
-import { AP } from '@atpar/ap.js';
-import VanillaFDTArtifact from '@atpar/ap-contracts/artifacts/VanillaFDT.min.json'
+import { AP } from '@atpar/protocol';
+import VanillaFDTArtifact from '@atpar/protocol/build/contracts/ProxySafeVanillaFDT.json'
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
 // -------------------------------------------------------------
