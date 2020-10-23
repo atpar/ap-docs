@@ -16,13 +16,10 @@
 * [Overview](sdk/overview.md)
 * [Tokenization](sdk/tokenization.md)
 
-## AP-Contracts
+## Smart Contracts
 
-* [Overview](ap-contracts/overview.md)
-
-## ACTUS Solidity
-
-* [Overview](actus-solidity/overview.md)
+* [Overview](smart-contracts/overview.md)
+* [ACTUS](smart-contracts/actus.md)
 
 ## Subgraphs
 
