@@ -21,7 +21,7 @@
 * [Overview](smart-contracts/overview.md)
 * [ACTUS](smart-contracts/actus.md)
 
-## Subgraphs
+## Subgraph
 
-* [Overview](subgraphs/overview.md)
+* [Overview](subgraph/overview.md)
 
