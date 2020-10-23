@@ -12,9 +12,9 @@ description: How the ACTUS Protocol components work together
 
 A subset of the contracts  implement the ACTUS financial contract standard. Its main features are creation of asset schedules from ACTUS contract terms and calculating state progression.
 
-### Contract Bindings <a id="contract-bindings"></a>
+### Typescript SDK \(Contract Bindings\) <a id="contract-bindings"></a>
 
-The Contract Bindings SDK serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away complexity of formatting terms, generating schedules and interacting with contracts.
+The SDK serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away complexity of formatting terms, generating schedules and interacting with contracts.
 
 ## The Inner Workings
 

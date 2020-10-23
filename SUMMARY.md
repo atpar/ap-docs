@@ -11,10 +11,10 @@
 * [Tokenize an asset](guides/tokenize-an-asset.md)
 * [Example Contract Terms](guides/example-contract-terms.md)
 
-## AP.js <a id="ap-js"></a>
+## Typescript SDK <a id="sdk"></a>
 
-* [Overview](ap-js/overview.md)
-* [Tokenization](ap-js/tokenization.md)
+* [Overview](sdk/overview.md)
+* [Tokenization](sdk/tokenization.md)
 
 ## AP-Contracts
 
