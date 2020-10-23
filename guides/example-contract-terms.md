@@ -167,7 +167,7 @@ This product reflects an open-ended performance certificate on an exchange-trade
     "delinquencyPeriod": "90D",
     "settlementPeriod": "2D",
     "fixingPeriod": "0D",
-    "exercisePeriod": "1D",
+    "redemptionExercisePeriod": "1D",
     
     "cycleOfRedemption": "1M-",
     "cycleOfTermination": "0D-",
