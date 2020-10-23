@@ -6,25 +6,21 @@ description: How the ACTUS Protocol components work together
 
 ## Components
 
-![](.gitbook/assets/ap-architecture_ms1-components-1-.jpg)
+![](.gitbook/assets/ap-architecture_ms1-components-1-%20%281%29.jpg)
 
-### ap.js
+### Smart Contracts
 
-`ap.js` is a TypeScript library that serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away a large chunk of the complexity of issuing an asset, progressing its state and tokenization.
+A subset of the contracts  implement the ACTUS financial contract standard. Its main features are creation of asset schedules from ACTUS contract terms and calculating state progression.
 
-### ap-contracts
+### Contract Bindings <a id="contract-bindings"></a>
 
-`ap-contracts` contains the smart contracts of the ACTUS Protocol smart contract system. It depends on `actus-solidity` and uses ACTUS definitions and ACTUS engines \(contract type specific state machines\) for computing the schedule, future states and obligations for ACTUS Protocol assets.
-
-### actus-solidity
-
-`actus-solidity` is an implementation of the ACTUS financial contract standard written in solidity. Its main features are creation of asset schedules from ACTUS contract terms and calculating state progression.
+The Contract Bindings SDK serves as a wrapper around the ACTUS Protocol smart contract system. It has handy convenience functions that abstract away complexity of formatting terms, generating schedules and interacting with contracts.
 
 ## The Inner Workings
 
 To understand how the ACTUS Protocol components work together, let's go through a couple of exemplary tasks and discuss them using the illustration below. The tasks have been simplified for this purpose but they nevertheless should give you a good general feeling of the inner workings.
 
-![](.gitbook/assets/ap-architecture_ms1-architecture_2.jpg)
+![](.gitbook/assets/ap-architecture_ms1-architecture.jpg)
 
 #### Issue an asset
 
