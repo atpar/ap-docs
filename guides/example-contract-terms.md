@@ -4,7 +4,7 @@ description: ACTUS terms for some example contracts
 
 # Example Contract Terms
 
-## Coupon-Paying Bond \([PAM](https://github.com/atpar/ap-monorepo/blob/2c92413d720ebb9c7f9d6b5e0f92574d80321830/packages/actus-solidity/contracts/Core/ACTUSTypes.sol#L290)\)
+## Coupon-Paying Bond \([PAM](https://github.com/atpar/ap-monorepo/blob/master/packages/protocol/contracts/ACTUS/Core/ACTUSTypes.sol#L300)\)
 
 This product reflects an unsecured, fixed-rate coupon bearing bond with a 1 year lifetime. The product offers the investor a quarterly \(interest\) coupon payment.
 
@@ -66,7 +66,7 @@ The interest rate is 0.5% and the notional principal is 100k TUSD.
 }
 ```
 
-## Amortizing Loan \([ANN](https://github.com/atpar/ap-monorepo/blob/2c92413d720ebb9c7f9d6b5e0f92574d80321830/packages/actus-solidity/contracts/Core/ACTUSTypes.sol#L87)\)
+## Amortizing Loan \([ANN](https://github.com/atpar/ap-monorepo/blob/master/packages/protocol/contracts/ACTUS/Core/ACTUSTypes.sol#L97)\)
 
 This product reflects an unsecured, amortizing fixed-rate loan. Principal and coupon are paid monthly to the investor. 
 
@@ -131,7 +131,7 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
 }
 ```
 
-## Performance Certificate on Underlying ￼\([CERTF](https://github.com/atpar/ap-monorepo/blob/2c92413d720ebb9c7f9d6b5e0f92574d80321830/packages/actus-solidity/contracts/Core/ACTUSTypes.sol#L165)\)
+## Performance Certificate on Underlying ￼\([CERTF](https://github.com/atpar/ap-monorepo/blob/master/packages/protocol/contracts/ACTUS/Core/ACTUSTypes.sol#L247)\)
 
 This product reflects an open-ended performance certificate on an exchange-traded, underlying asset. The product offers the investor a bi-monthly redemption option.
 
@@ -192,7 +192,7 @@ This product reflects an open-ended performance certificate on an exchange-trade
 }
 ```
 
-## Single-Entity Credit Default Swap \([CEG](https://github.com/atpar/ap-monorepo/blob/2c92413d720ebb9c7f9d6b5e0f92574d80321830/packages/actus-solidity/contracts/Core/ACTUSTypes.sol#L193)\)
+## Single-Entity Credit Default Swap \([CEG](https://github.com/atpar/ap-monorepo/blob/master/packages/protocol/contracts/ACTUS/Core/ACTUSTypes.sol#L203)\)
 
 This product protects the buyer from a credit event on a single underlying instrument.
 
