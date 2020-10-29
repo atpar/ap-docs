@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Architecture](architecture.md)
+* [ACTUS](actus.md)
 * [Cheat Sheet](cheat-sheet.md)
 
 ## Guides
@@ -15,11 +16,6 @@
 
 * [Overview](sdk/overview.md)
 * [Tokenization](sdk/tokenization.md)
-
-## Smart Contracts
-
-* [Overview](smart-contracts/overview.md)
-* [ACTUS](smart-contracts/actus.md)
 
 ## Subgraph
 

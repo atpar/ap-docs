@@ -24,7 +24,7 @@ We assume you have completed the [Getting started](getting-started.md) guide.
 
 First, set yourself as the creator, optionally set the address for the counterparty \(the party that will take out the loan\) if you know it in advance and choose a template from the available templates.
 
-To speed up things up, you can use the PAM terms from our[ example repository.](https://github.com/atpar/ap-js-example/blob/master/PAMTerms.json)
+To speed up things up, you can use the PAM terms from our[ example repository.](https://github.com/atpar/example)
 
 ```typescript
 import { AP } from '@atpar/protocol';
