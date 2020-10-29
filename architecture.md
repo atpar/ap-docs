@@ -6,7 +6,7 @@ description: How the ACTUS Protocol components work together
 
 ## Components
 
-![](.gitbook/assets/ap-architecture_ms1-components-1-%20%281%29.jpg)
+![](.gitbook/assets/image%20%285%29.png)
 
 ### Smart Contracts
 
