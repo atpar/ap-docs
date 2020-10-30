@@ -4,9 +4,7 @@ description: Retrieve information about the state of ACTUS Protocol assets using
 
 # Overview
 
-The easiest way to access on-chain information about ACTUS Protocol Assets is to use GraphQL via TheGraph. We have set up subgraphs for the _Goerli_ & _Rinkeby_ deployments of ACTUS Protocol. You can use these pages also to test your queries.
-
-{% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol-goerli" %}
+The easiest way to access on-chain information about ACTUS Protocol Assets is to use GraphQL via TheGraph. We have set up subgraphs for the _Rinkeby_ testnet deployment of ACTUS Protocol. You can use the interface from TheGraph to test your queries.
 
 {% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby" %}
 

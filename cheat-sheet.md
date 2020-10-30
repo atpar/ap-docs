@@ -13,9 +13,7 @@ description: >-
 * [Example contract Terms](guides/example-contract-terms.md)
 * Funds Distribution Standard - [ERC-2222](https://github.com/ethereum/EIPs/issues/2222)
 * The Graph for ACTUS Protocol
-  * [Rinkeby-1](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby)
-  * [Rinkeby-2](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby-2)
-  * [Goerli-1](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-goerli)
+  * [Rinkeby](https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby)
 
 
 

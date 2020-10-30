@@ -17,7 +17,7 @@
 * [Overview](sdk/overview.md)
 * [Tokenization](sdk/tokenization.md)
 
-## Subgraph
+## Subgraph \(GraphQL\) <a id="subgraph"></a>
 
 * [Overview](subgraph/overview.md)
 
