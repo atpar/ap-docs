@@ -19,24 +19,23 @@ The interest rate is 0.5% and the notional principal is 100k TUSD.
    "businessDayConvention": "CSMF",
    "endOfMonthConvention": "SD",
    "scalingEffect": "000",
-   "penaltyType": "N",
    "feeBasis": "A",
    
    "currency": "0x6Ce7BFC48be104950D6506c7FC16486446a24261",
-   "settlementCurrency":null,
+   "settlementCurrency": null,
    
-   "marketObjectCodeRateReset":null,
-   
-   "contractDealDate": "2020-09-25T10:20:40.000Z",
+   "marketObjectCodeRateReset": null,
+
+   "issueDate": null,   
    "statusDate": "2020-09-25T10:20:40.000Z",
    "initialExchangeDate": "2020-09-26T10:20:40.000Z",
    "maturityDate": "2021-09-25T10:20:40.000Z",
-   "purchaseDate":null,
-   "capitalizationEndDate":null,
+   "purchaseDate": null,
+   "capitalizationEndDate": null,
    "cycleAnchorDateOfInterestPayment": "2020-12-25T10:20:40.000Z"
-   "cycleAnchorDateOfRateReset":null,
-   "cycleAnchorDateOfScalingIndex":null,
-   "cycleAnchorDateOfFee":null,
+   "cycleAnchorDateOfRateReset": null,
+   "cycleAnchorDateOfScalingIndex": null,
+   "cycleAnchorDateOfFee": null,
    
    "notionalPrincipal": "100000",
    "nominalInterestRate": "0.005",
@@ -46,10 +45,9 @@ The interest rate is 0.5% and the notional principal is 100k TUSD.
    "nextResetRate": "0",
    "feeRate": "0",
    "feeAccrued": "0",
-   "penaltyRate": "0",
-   "delinquencyRate": "0",
    "premiumDiscountAtIED": "0",
    "priceAtPurchaseDate": "0",
+   "priceAtTerminationDate": "0",
    
    "lifeCap": "0",
    "lifeFloor": "0",
@@ -81,24 +79,23 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
    "businessDayConvention": "CSMF",
    "endOfMonthConvention": "SD",
    "scalingEffect": "000",
-   "penaltyType": "N",
    "feeBasis": "A",
    
    "currency": "0x6Ce7BFC48be104950D6506c7FC16486446a24261",
-   "settlementCurrency":null,
+   "settlementCurrency": null,
    
-   "marketObjectCodeRateReset":null,
+   "marketObjectCodeRateReset": null,
    
-   "contractDealDate": "2020-09-02T10:53:26.000Z",
+   "issueDate": null,
    "statusDate": "2020-09-02T10:53:26.000Z",
    "initialExchangeDate": "2020-09-03T10:53:26.000Z",
    "maturityDate": "2021-09-02T10:53:26.000Z",
-   "purchaseDate":null,
-   "capitalizationEndDate":null,
+   "purchaseDate": null,
+   "capitalizationEndDate": null,
    "cycleAnchorDateOfInterestPayment": "2020-10-02T10:53:26.000Z",
-   "cycleAnchorDateOfRateReset":null,
-   "cycleAnchorDateOfScalingIndex":null,
-   "cycleAnchorDateOfFee":null,
+   "cycleAnchorDateOfRateReset": null,
+   "cycleAnchorDateOfScalingIndex": null,
+   "cycleAnchorDateOfFee": null,
    "cycleAnchorDateOfPrincipalRedemption": "2020-10-02T10:53:26.000Z"
    
    "notionalPrincipal": "100000",
@@ -109,10 +106,9 @@ The interest rate is 0.5% and the notional principal is 100k TUSD. Both grace an
    "nextResetRate": "0",
    "feeRate": "0",
    "feeAccrued": "0",
-   "penaltyRate": "0",
-   "delinquencyRate": "0",
    "premiumDiscountAtIED": "0",
    "priceAtPurchaseDate": "0",
+   "priceAtTerminationDate": "0",
    "nextPrincipalRedemptionPayment": "2.6667",
    
    "lifeCap": "0",
@@ -148,11 +144,10 @@ This product reflects an open-ended performance certificate on an exchange-trade
     "currency": "0x1c36690810ad06fb15552657c7a8ff653eb46f76",
     "settlementCurrency": null,
     
-    "contractDealDate": "2020-06-18T00:00:00.000Z",
+    "issueDate": "2020-06-18T00:00:00.000Z",
     "statusDate": "2020-06-18T00:00:00.000Z",
     "initialExchangeDate": null,
     "maturityDate": null,
-    "issueDate": "2020-06-18T00:00:00.000Z",
     "cycleAnchorDateOfRedemption": "2020-07-18T00:00:00.000Z",
     "cycleAnchorDateOfTermination": null,
     "cycleAnchorDateOfCoupon": null,
@@ -167,7 +162,7 @@ This product reflects an open-ended performance certificate on an exchange-trade
     "delinquencyPeriod": "90D",
     "settlementPeriod": "2D",
     "fixingPeriod": "0D",
-    "redemptionExercisePeriod": "1D",
+    "redemptionRecordPeriod": "1D",
     
     "cycleOfRedemption": "1M-",
     "cycleOfTermination": "0D-",
@@ -210,7 +205,6 @@ This product protects the buyer from a credit event on a single underlying instr
    "currency": "0x6Ce7BFC48be104950D6506c7FC16486446a24261",
    "settlementCurrency":null,
    
-   "contractDealDate": "2020-10-01T14:29:24.000Z",
    "statusDate": "2020-10-01T14:29:24.000Z",
    "maturityDate": "2021-10-01T14:29:24.000Z",
    "purchaseDate":null,
@@ -221,6 +215,7 @@ This product protects the buyer from a credit event on a single underlying instr
    "feeAccrued": "0",
    "feeRate": "0",
    "priceAtPurchaseDate": "0",
+   "priceAtTerminationDate": "0",
    "coverageOfCreditEnhancement": "1",
    
    "gracePeriod": "5D",

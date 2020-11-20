@@ -8,13 +8,7 @@ description: >-
 
 ### Usage
 
-The protocol package is hosted on GitHub package and requires additional configuration. To configure npm or yarn to use the GitHub Package Registry see: [docs.github.com](https://docs.github.com/en/free-pro-team@latest/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages). After you configured the npm cli to access the GitHub Package Registry create a `.npmrc`file in the root of your project with following content: 
-
-```typescript
-@atpar:registry=https://npm.pkg.github.com
-```
-
-If you configured everything correctly you should be able to install the package via:
+Install the package via:
 
 ```bash
 yarn add @atpar/protocol

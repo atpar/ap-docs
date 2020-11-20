@@ -19,12 +19,6 @@ You should be on a linux compatible shell with basic dev tools like git installe
 * Install [node](https://nodejs.org/en/) e.g. via [nvm](https://github.com/nvm-sh/nvm) \(tested on version 10.16.0\)
 * Install [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) e.g. as a global npm package via `npm install yarn --global`
 
-The protocol package is hosted on GitHub package and requires additional configuration. To configure npm or yarn to use the GitHub Package Registry see: [docs.github.com](https://docs.github.com/en/free-pro-team@latest/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages). After you configured the npm cli to access the GitHub Package Registry create a `.npmrc`file in the root of your project with following content: 
-
-```typescript
-@atpar:registry=https://npm.pkg.github.com
-```
-
 ### Create a new project
 
 If you've configured everything correctly you should be able to create a new project and install the package via the following commands.
