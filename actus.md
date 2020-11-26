@@ -14,10 +14,12 @@ You can find the complete specifications of the two parts of the standard, the _
 
 In [`protocol`](https://github.com/atpar/ap-monorepo/tree/master/packages/protocol) we ported the Standards to solidity and are incrementally implementing ACTUS contract types. Currently the following contract types have been implemented:
 
-* **PAM** - Principal at Maturity: Used e.g. for assets where interest is paid over the lifetime but the principal is paid at the end of the schedule.
 * **ANN** - Annuity: Used for instruments where interest and principal are paid back over the lifetime of the asset.
 * **CEG** - Guarantee: Creates a relationship between a guarantor, an obligee and a debtor, moving the exposure from the debtor to the guarantor.
 * **CEC** - Collateral: Creates a relationship between a collateral an obligee and a debtor, covering the exposure from the debtor with the collateral.
+* **CERTF** - Certificates
+* **PAM** - Principal at Maturity: Used e.g. for assets where interest is paid over the lifetime but the principal is paid at the end of the schedule.
+* **STK** - Stocks
 
 The ACTUS implementation in Solidity can be used independently for creating ACTUS instruments on Ethereum but also is the foundational component for the protocol.
 
