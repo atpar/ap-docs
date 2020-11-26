@@ -4,7 +4,7 @@ description: Retrieve information about the state of ACTUS Protocol assets using
 
 # Overview
 
-The easiest way to access on-chain information about ACTUS Protocol Assets is to use GraphQL via TheGraph. We have set up subgraphs for the _Rinkeby_ testnet deployment of ACTUS Protocol. You can use the interface from TheGraph to test your queries.
+The easiest way to access on-chain information about ACTUS Protocol Assets is to use GraphQL via _The Graph_. We have set up subgraphs for the _Rinkeby_ Testnet deployment of ACTUS Protocol. You can use the interface from _The Graph_ to test your queries.
 
 {% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby" %}
 
@@ -12,37 +12,11 @@ In addition to the below queries, you can find some executable examples in the T
 
 ![Query examples](../.gitbook/assets/image%20%284%29.png)
 
-## Schema
-
-The top level entities of the GraphQL schema are as follows:
-
-* Asset
-* Schedule
-* State
-* DataPoint 
-* DataSet 
-* Holder 
-* Distributor 
-* Period 
-* Cycle 
-* ContractReference 
-* AssetOwnership 
-* ANNAsset 
-* CECAsset 
-* CEGAsset 
-* CERTFAsset 
-* PAMAsset 
-* DvPSettlementData 
-
-To get a full understanding of the information you can retrieve via TheGraph, please check out the schema on the subgraph page and look at the [subgraph definition](https://github.com/atpar/ap-subgraph).
-
 ## Endpoint
 
 The GraphQL endpoint is
 
-[`https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby`  
-](https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby
-)[`https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-goerli`](https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-goerli
+[`https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby`](https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby
 )
 
 Method: POST
