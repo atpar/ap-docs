@@ -27,7 +27,7 @@ const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://rinkeby.infur
 
 const defaultAccount = (await web3.eth.getAccounts())[0];
 
-const addressBook: APTypes.AddressBook; // addresses are provided on GitHub
+const addressBook: APTypes.AddressBook;
 
 const ap = await AP.init(
   web3,
