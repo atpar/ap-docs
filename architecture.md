@@ -10,7 +10,7 @@ description: How the ACTUS Protocol components work together
 
 ### Smart Contracts
 
-A subset of the contracts, the ACTUS Engines and the ACTUS Core, implement the ACTUS financial contract standard. Its main features are creation of asset schedules from ACTUS contract terms and calculating state progression. The remaining contracts facilitate asset registration, connection to external data \(oracles\), tokenization and other aspects related to the life cycle of an asset on Ethereum.
+A subset of the contracts, the _ACTUS Engines_ and the _ACTUS Core,_ implement the ACTUS financial contract standard. Its main features are creation of asset schedules from ACTUS contract terms and computing state progression. The remaining contracts facilitate asset registration, connection to external data \(oracles\), tokenization and other aspects related to the lifecycle of an asset on Ethereum.
 
 ### Typescript SDK \(Contract Bindings\) <a id="contract-bindings"></a>
 
@@ -24,15 +24,15 @@ To understand how the ACTUS Protocol components work together, let's go through 
 
 #### Issue an asset
 
-When issuing an asset a transaction is sent to the `initialize()` method of the _Asset Actor_ containing the asset terms, ownership information and a reference to an _ACTUS Engine_. As a result, the asset is now registered in the Asset Registry. The exact parameter set for initialization vary slightly between the contract types.
+When issuing an asset a transaction calling the `initialize` method of the _Asset Actor_ containing the asset terms, ownership information and the address of an _ACTUS Engine_.  The exact parameters vary slightly between the contract types.
 
 #### Progress an asset
 
-To progress an asset the _Asset Actor_ is called through a transaction. It reads from the _Asset Registry_ and the ACTUS _Engines_ to verify the requirements for the state transition of the asset. If, for example, a payment is necessary to progress the asset's state, it is executed by the _Asset Actor \(assuming allowances were set at time of execution\)._ 
+Progressing through the lifecycle of the asset is done via the `progress` method of the _Asset Actor_. It retrieves the terms and the current state of the asset from the _Asset Registry_ and uses the ACTUS _Engines_ to derives the requirements for the state transition of the asset. For example if a payment is necessary to progress the asset's state, it is executed by the _Asset Actor \(assuming allowances were set at time of execution\)._ 
 
 #### Publish Market Data
 
-Market Data Providers are whitelisted Ethereum accounts, e.g. decentralized oracles or trusted third parties that can publish data to the _Data Registry_ using the `publishDataPoint()` method. They provide data points that assets need for calculating payoffs, e.g. external interest rates. 
+Market Data Providers are whitelisted Ethereum accounts, e.g. decentralized oracles or trusted third parties that can publish data to the _Data Registry_ using the `publishDataPoint` method. They provide external data points needed for example for rate resets, determining the market value of underlying assets.
 
 
 
