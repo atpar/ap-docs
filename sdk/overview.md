@@ -22,8 +22,8 @@ Initializing the Typescript SDK.
 import Web3 from 'web3.js'; // v1.2.4
 import { AP } from '@atpar/protocol';
 
-// connecting to Görli Testnet via infura
-const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
+// connecting to Rinkeby Testnet via infura
+const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://rinkeby.infura.io/ws/v3/<PROJECT_ID>'));
 
 const defaultAccount = (await web3.eth.getAccounts())[0];
 
