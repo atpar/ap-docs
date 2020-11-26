@@ -37,8 +37,8 @@ To initialize the project, set your web3 provider \(e.g. [Infura](https://infura
 import Web3 from 'web3.js'; 
 import { AP } from '@atpar/protocol';
 
-// connecting to Görli Testnet via infura
-const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://goerli.infura.io/ws/v3/<PROJECT_ID>'));
+// connecting to Rinkeby Testnet via infura
+const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://rinkeby.infura.io/ws/v3/<PROJECT_ID>'));
 
 const defaultAccount = (await web3.eth.getAccounts())[0];
 
