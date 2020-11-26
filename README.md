@@ -20,7 +20,7 @@ ACTUS Protocol is based on an open-source implementation of the [ACTUS](https://
 
 All assets have a unified term sheet and a clear and well-defined schedule. External data, such as changing interest rates are supported through external market objects which can be connected to oracles. Assets can have credit enhancements such as on-chain collateral or legal guarantees.
 
-ACTUS assets are registered in an asset registry. They are progressed through their life cycle according to their schedule. An Asset's schedule, which is the basis for the protocol's state machine, is derived from its terms using the solidity implementation of ACTUS, guaranteeing a common understanding about _who owes what to whom and when_.
+ACTUS assets are registered in an asset registry. They are progressed through their lifecycle according to their schedule. An Asset's schedule, which is the basis for the protocol's state machine, is derived from its terms using the solidity implementation of ACTUS, guaranteeing a common understanding about _who owes what to whom and when_.
 
 **Core features:**
 
