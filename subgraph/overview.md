@@ -8,7 +8,7 @@ The easiest way to access on-chain information about ACTUS Protocol Assets is to
 
 {% embed url="https://thegraph.com/explorer/subgraph/atpar/actus-protocol-rinkeby" %}
 
-In addition to the below queries, you can find some executable examples in the TheGraph interface. You can also use the TheGraph website to test your queries.
+In addition to the below queries, you can find some executable examples in the _The Graph_ interface. You can also use the _The Graph_ website to test your queries.
 
 ![Query examples](../.gitbook/assets/image%20%284%29.png)
 
