@@ -24,7 +24,8 @@ As a beneficiary, you have the right to tokenize your side of the contract. Make
 
 ```typescript
 import { AP } from '@atpar/protocol';
-import VanillaFDTArtifact from '@atpar/protocol/build/contracts/ProxySafeVanillaFDT.json'
+import VanillaFDTArtifact from '@atpar/protocol/build/contracts/contracts/Extensions/FDT/VanillaFDT/VanillaFDT.sol/VanillaFDT.json';
+
 // -------------------------------------------------------------
 // refer to the "Getting started" section for initializing ap.js
 // -------------------------------------------------------------
@@ -32,27 +33,26 @@ import VanillaFDTArtifact from '@atpar/protocol/build/contracts/ProxySafeVanilla
 const creatorBeneficiary = (await web3.eth.getAccounts())[0];
 const fractionalOwner = (await web3.eth.getAccounts())[1];
 
-// Derive terms and currency address with ASSET_ID 
+// derive terms and currency address with ASSET_ID 
 const terms = await ap.contracts.pamRegistry.methods.getTerms(ASSET_ID).call();
 const settlementTokenAddress = terms.currency;
 
-// Set initialization arguments
+// set initialization arguments and the deploy the FDT
 const name = 'FundsDistributionToken';
 const symbol = 'FDT';
 const initialAmount = web3.utils.toWei('100'); // minted to owner
 
-const arguments = [name, symbol, settlementTokenAddress, creatorBeneficiary, initialAmount];
-const fdtInterface = new web3.eth.Contract(VanillaFDTArtifact.abi);
-// deploy new FDT contract
-const fdtContract = fdtInterfacedeploy({ 
+const fdtContract = (new web3.eth.Contract(VanillaFDTArtifact.abi)).deploy({ 
     data: VanillaFDTArtifact.bytecode, 
-    arguments
+    [name, symbol, settlementTokenAddress, creatorBeneficiary, initialAmount]
 }).send({ from: creatorBeneficiary });
 
-// Share ownership with fractionalOwner
 // send 20 tokens so that fractionalOwner now owns 20/100 of the created tokens
 // and thus owns the rights to a 1/5 share of incoming payments 
-await fdtContract.methods.transfer(fractionalOwner, web3.utils.toWei('20')).send({from: creatorBeneficiary});
+await fdtContract.methods.transfer(
+    fractionalOwner,
+    web3.utils.toWei('20')
+).send({ from: creatorBeneficiary });
 ```
 
 ### Tokenize the asset
@@ -60,8 +60,10 @@ await fdtContract.methods.transfer(fractionalOwner, web3.utils.toWei('20')).send
 Now that we have created the FDT as a vehicle for fractional ownership of settlement token payments, we must set the FDT contract as the beneficiary of incoming payments made on an asset. To do this we need to call the appropriate asset registry contract to update the creator beneficiary.
 
 ```typescript
-await ap.contracts.pamRegistry.methods.setCreatorBeneficiary(ASSET_ID, fdt.options.address)
-    .send({from: creatorBeneficiary});
+await ap.contracts.pamRegistry.methods.setCreatorBeneficiary(
+    ASSET_ID,
+    fdt.options.address
+).send({from: creatorBeneficiary});
 ```
 
 ### Withdraw Funds
@@ -73,13 +75,13 @@ Later, when some payments by the debtor have been made, the token holders can wi
 // withdrawing funds paid into the FDT
 // -------------------------------------------------------------
 
-// to ensure that the internal FDT balance calculations are up to date
+// the internal balances of the FDT have to be update
 await fdt.methods.updateFundsReceived().send({from: anyone})
 
-// ...
-await fdt.methods.withdrawableFundsOf(creatorBeneficiary).call();
+// retrieve the current accrued amount of a holder
+await fdt.methods.withdrawableFundsOf(fractionalOwner).call();
 
-// withdrawing ...
-await fdt.methods.withdrawFunds().send({ from: creatorBeneficiary });
+// withdrawing the accrued amount for a holder
+await fdt.methods.withdrawFunds().send({ from: fractionalOwner });
 ```
 
