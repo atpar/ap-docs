@@ -10,7 +10,7 @@ description: >-
 The provided instructions have been tested on macOS and Ubuntu. If you run into any issues with your setup - let us now on Discord.
 {% endhint %}
 
-This guide uses the current version of ACTUS Protocol smart contracts deployed on _Goerli  Testnet_. To see a full working example of the Typescript SDK in action check out our [example repository](https://github.com/atpar/example).
+This guide uses the current version of ACTUS Protocol smart contracts deployed on _Goerli  Testnet_. To see a full working example of the Typescript SDK check out our [example repository](https://github.com/atpar/example).
 
 ### Install prerequisites
 
@@ -42,7 +42,7 @@ const web3 = new Web3(new Web3.providers.Web3SocketProvider('wss://rinkeby.infur
 
 const defaultAccount = (await web3.eth.getAccounts())[0];
 
-const ap = await AP.init(web3);
+const ap = await AP.init(web3, ADDRESS_BOOK);
 ```
 
 

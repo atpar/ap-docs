@@ -41,7 +41,7 @@ const anyone = (await web3.eth.getAccounts())[2] // used to make calls that coul
 const PAMTerms = require('./terms.json'); 
 const terms = {
     ...PAMTerms,
-    currency: '0xEcFcaB0A285d3380E488A39B4BB21e777f8A4EaC' // address of ERC20 token to use as settlement currency
+    currency: '<ADDRESS>' // address of ERC20 token to use as settlement currency
 }
 ```
 
@@ -55,10 +55,6 @@ const ownership = {
     counterpartyObligor: counterparty, // has to fulfill all obligations for the counterparty
     counterpartyBeneficiary: counterparty, // receives all positive cash flow for the counterparty
 }
-
-// Use the conversion utils method to get the schedule
-const schedule = await ap.utils.schedule.computeScheduleFromTerms(ap.contracts.pamEngine, terms);
-
 ```
 
 Use the appropriate Asset Actor contract \(in our case the PAMActor\) to initialize and register the new asset on chain:
@@ -66,7 +62,7 @@ Use the appropriate Asset Actor contract \(in our case the PAMActor\) to initial
 ```typescript
 const initializeAssetTx = await ap.contracts.pamActor.methods.initialize(
     terms, // Asset Terms
-    schedule, // Schedule generated from engine
+    [], // optionally pass custom schedule
     ownership, // Ownership structure
     ap.contracts.pamEngine.options.address, // Asset engine contract addres
     ap.utils.constants.ZERO_ADDRESS // admin address (optional)
@@ -96,7 +92,7 @@ const currency = terms.currency;
 await ap.contracts.erc20(currency).methods.approve(
     ap.contracts.pamActor.options.address, 
     amount
-);
+).send({from: creator});
 
 // progress the asset
 await ap.contracts.pamActor.methods.progress(assetId).send({from: anyone});
