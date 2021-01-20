@@ -6,8 +6,8 @@ description: >-
 
 # Cheat Sheet
 
-* [Demo Portal](https://portal.actus-protocol.io/)
-* [Developer Portal](https://developer.actus-protocol.io/)
+* [Demo Portal](https://portal.atpar.io/)
+* [Developer Portal](https://developer.atpar.io/)
 * Current ACTUS Protocol Smart Contract [deployments](https://github.com/atpar/ap-monorepo/tree/master/packages/protocol/deployments) 
 * [ACTUS Dictionary](https://github.com/actusfrf/actus-dictionary)
 * [Example contract Terms](guides/example-contract-terms.md)
