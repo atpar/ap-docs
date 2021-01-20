@@ -16,8 +16,9 @@ In addition to the below queries, you can find some executable examples in the _
 
 The GraphQL endpoint is
 
-[`https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby`](https://api.thegraph.com/subgraphs/name/atpar/actus-protocol-rinkeby
-)
+{% embed url="http://ap-subgraph.atpar.io:8000/subgraphs/name/atpar/actus-protocol-rinkeby/graphql" %}
+
+\`\`
 
 Method: POST
 
